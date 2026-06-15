@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Luana Laitart | Mentora de Imagem e Estilo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================================================
+           PALETA — extraída diretamente do logo foto1.png
+           · Fundo logo:  #E8E3DC  (bege quente)
+           · Círculo/txt: #3A2010  (marrom escuro)
+           · Ouro escuro: #A87020
+           · Ouro médio:  #C89030
+           · Ouro claro:  #E4B840
+           · Destaque:    #F0E080
+        ================================================ */
+        :root {
+            --brown-dark:    #3A2010;
+            --brown-mid:     #5A3820;
+            --brown-light:   #8A6040;
+            --gold-dark:     #A87020;
+            --gold-mid:      #C89030;
+            --gold-light:    #E4B840;
+            --gold-bright:   #F0E080;
+            --beige-logo:    #E8E3DC;   /* idêntico ao fundo do logo */
+            --beige:         #EDE8E1;
+            --beige-card:    #F5F1EA;
+            --white:         #FFFFFF;
+            --text-dark:     #2A1508;
+
+            --grad-gold:       linear-gradient(135deg, #A87020 0%, #E4B840 48%, #F0E080 65%, #C89030 100%);
+            --grad-gold-hover: linear-gradient(135deg, #8E5F14 0%, #D4A020 48%, #EAD060 65%, #A87020 100%);
+            --grad-gold-text:  linear-gradient(120deg, #A87020 0%, #F0E080 50%, #C89030 100%);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--beige);
+            color: var(--text-dark);
+            line-height: 1.65;
+            overflow-x: hidden;
+            padding-bottom: 76px;
+        }
+
+        @media (min-width: 768px) { body { padding-bottom: 0; } }
+
+        /* ================================================
+           CABEÇALHO — fundo exato do logo para fusão perfeita
+        ================================================ */
+        .header {
+            background-color: var(--beige-logo);
+            padding: 36px 24px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Linha dourada que separa header do hero */
+        .header::after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: var(--grad-gold);
+            margin-top: 0;
+        }
+
+        .logo-img {
+            width: 180px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .logo-tagline {
+            font-size: 10.5px;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--brown-mid);
+            padding: 14px 0 20px;
+            opacity: .8;
+        }
+
+        /* ================================================
+           HERO
+        ================================================ */
+        .hero {
+            background-color: var(--brown-dark);
+            padding: 52px 24px 60px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid rgba(200,144,48,.5);
+            color: var(--gold-light);
+            font-size: 11px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            padding: 7px 22px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .hero-headline {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(34px, 8.5vw, 56px);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.12;
+            margin-bottom: 24px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            background: var(--grad-gold-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 16px;
+            color: rgba(232,227,220,.72);
+            max-width: 480px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            line-height: 1.75;
+        }
+
+        .hero-price-hint {
+            margin-top: 18px;
+            font-size: 13px;
+            color: rgba(200,144,48,.6);
+            letter-spacing: .05em;
+        }
+
+        /* ================================================
+           BOTÃO CTA
+        ================================================ */
+        .btn {
+            display: inline-block;
+            background: var(--grad-gold);
+            color: var(--brown-dark);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            padding: 20px 48px;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .25s ease, box-shadow .25s ease;
+            box-shadow: 0 4px 28px rgba(168,112,32,.3);
+        }
+
+        .btn:hover {
+            background: var(--grad-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 36px rgba(168,112,32,.45);
+        }
+
+        .btn:active { transform: translateY(0); }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ================================================
+           DIVISOR ORNAMENTAL
+        ================================================ */
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 44px 32px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+        }
+
+        .ornament::before { background: linear-gradient(to right,  transparent, var(--brown-light)); opacity: .3; }
+        .ornament::after  { background: linear-gradient(to left,   transparent, var(--brown-light)); opacity: .3; }
+
+        .ornament span { font-size: 15px; color: var(--gold-mid); line-height: 1; }
+
+        /* ================================================
+           PARA QUEM É
+        ================================================ */
+        .forwho {
+            padding: 0 24px 56px;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(26px, 5.5vw, 40px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-body {
+            font-size: 15.5px;
+            color: var(--brown-mid);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ================================================
+           BENEFÍCIOS
+        ================================================ */
+        .benefits {
+            background-color: var(--brown-dark);
+            padding: 56px 24px 60px;
+            position: relative;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--grad-gold);
+        }
+
+        .benefits-inner {
+            max-width: 580px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .benefits .section-label { color: rgba(200,144,48,.8); }
+        .benefits .section-title { color: var(--white); margin-bottom: 40px; }
+
+        .benefits-list {
+            list-style: none;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .benefit-dot {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(200,144,48,.35);
+            background: rgba(200,144,48,.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 3px;
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .benefit-content strong {
+            display: block;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--gold-light);
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .benefit-content p {
+            font-size: 14px;
+            color: rgba(232,227,220,.65);
+            line-height: 1.65;
+        }
+
+        /* ================================================
+           OFERTA / PREÇO
+        ================================================ */
+        .offer {
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .offer-card {
+            background: var(--white);
+            border: 1px solid rgba(168,112,32,.18);
+            border-radius: 10px;
+            padding: 48px 32px 40px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 8px 52px rgba(58,32,16,.08);
+        }
+
+        .offer-product-label {
+            font-size: 11px;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .offer-name {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--brown-dark);
+            line-height: 1.25;
+            margin-bottom: 28px;
+        }
+
+        .offer-hr {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(168,112,32,.25), transparent);
+            margin: 0 auto 28px;
+        }
+
+        .offer-price-label {
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--brown-light);
+            margin-bottom: 8px;
+        }
+
+        .offer-price {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 64px;
+            font-weight: 600;
+            color: var(--brown-dark);
+            line-height: 1;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .offer-price .currency { font-size: 22px; margin-top: 10px; font-weight: 500; }
+        .offer-price .cents    { font-size: 22px; margin-top: 10px; font-weight: 500; }
+
+        .offer-note {
+            font-size: 13px;
+            color: var(--brown-light);
+            margin-bottom: 32px;
+        }
+
+        .offer-secure {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11.5px;
+            color: var(--brown-light);
+            letter-spacing: .03em;
+        }
+
+        /* ================================================
+           CTA FINAL
+        ================================================ */
+        .final-cta {
+            background-color: var(--brown-dark);
+            padding: 60px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--grad-gold);
+        }
+
+        .final-cta .section-title {
+            color: var(--white);
+            margin-bottom: 16px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .section-body {
+            color: rgba(232,227,220,.65);
+            margin-bottom: 36px;
+        }
+
+        .price-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(200,144,48,.25);
+            background: rgba(200,144,48,.08);
+            border-radius: 100px;
+            padding: 10px 28px;
+            margin-bottom: 28px;
+        }
+
+        .price-badge small {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold-mid);
+        }
+
+        .price-badge strong {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .final-hint {
+            margin-top: 18px;
+            font-size: 12px;
+            color: rgba(200,144,48,.4);
+            letter-spacing: .05em;
+        }
+
+        /* ================================================
+           RODAPÉ
+        ================================================ */
+        .footer {
+            background-color: var(--text-dark);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 11px;
+            color: rgba(232,227,220,.3);
+            letter-spacing: .05em;
+        }
+
+        /* ================================================
+           BOTÃO FIXO — MOBILE ONLY
+        ================================================ */
+        .sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(28,14,6,.96);
+            backdrop-filter: blur(6px);
+            border-top: 1px solid rgba(200,144,48,.2);
+            padding: 12px 16px;
+            z-index: 999;
+        }
+
+        .sticky-bar .btn {
+            display: block;
+            width: 100%;
+            max-width: none;
+            padding: 16px 24px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 767px) { .sticky-bar { display: block; } }
+    </style>
+</head>
+<body>
+
+    <!-- ==============================
+         CABEÇALHO / LOGO ORIGINAL
+    =============================== -->
+    <header class="header">
+        <img
+            src="fotos/foto1.png"
+            alt="Logo Luana Laitart — Mentora de Imagem e Estilo"
+            class="logo-img"
+        >
+        <p class="logo-tagline">Mentora de Imagem &amp; Estilo</p>
+    </header>
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+    <section class="hero">
+        <div class="hero-badge">+2 anos transformando imagens</div>
+
+        <h1 class="hero-headline">
+            Chegou a hora de ser vista como a&nbsp;<em>especialista</em>&nbsp;que você já é.
+        </h1>
+
+        <p class="hero-sub">
+            Um desafio prático de imagem e estilo criado para mulheres empreendedoras que querem ser reconhecidas com autoridade — antes mesmo de abrir a boca.
+        </p>
+
+        <a href="#" class="btn btn-block" id="cta-hero">Quero Participar Agora</a>
+
+        <p class="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Apenas R$ 67,00</p>
+    </section>
+
+    <!-- ==============================
+         DIVISOR
+    =============================== -->
+    <div class="ornament"><span>✦</span></div>
+
+    <!-- ==============================
+         PARA QUEM É
+    =============================== -->
+    <section class="forwho">
+        <p class="section-label">Este desafio é para você que…</p>
+        <h2 class="section-title">
+            Se veste todos os dias, mas ainda<br>
+            <em style="font-style:italic;">não se sente poderosa.</em>
+        </h2>
+        <p class="section-body">
+            Se você é empreendedora, profissional liberal ou líder e sente que a sua imagem ainda não reflete o tamanho do seu trabalho — este desafio foi criado exatamente para você.
+        </p>
+    </section>
+
+    <!-- ==============================
+         BENEFÍCIOS
+    =============================== -->
+    <section class="benefits">
+        <div class="benefits-inner">
+            <p class="section-label">O que você vai conquistar</p>
+            <h2 class="section-title">Em poucos dias, você vai aprender a</h2>
+
+            <ul class="benefits-list">
+
+                <li class="benefit-item">
+                    <div class="benefit-dot">I</div>
+                    <div class="benefit-content">
+                        <strong>Descobrir seu estilo autêntico de autoridade</strong>
+                        <p>Entenda quais cores, formas e combinações comunicam o que você quer transmitir — sem abrir mão da sua personalidade.</p>
+                    </div>
+                </li>
+
+                <li class="benefit-item">
+                    <div class="benefit-dot">II</div>
+                    <div class="benefit-content">
+                        <strong>Construir uma imagem que atrai os clientes certos</strong>
+                        <p>Use a moda como ferramenta de posicionamento e seja reconhecida como referência no seu mercado.</p>
+                    </div>
+                </li>
+
+                <li class="benefit-item">
+                    <div class="benefit-dot">III</div>
+                    <div class="benefit-content">
+                        <strong>Se sentir confiante em qualquer situação</strong>
+                        <p>Da reunião importante à foto do Instagram — saiba exatamente o que vestir e por quê, sem gastar mais por isso.</p>
+                    </div>
+                </li>
+
+                <li class="benefit-item">
+                    <div class="benefit-dot">IV</div>
+                    <div class="benefit-content">
+                        <strong>Comunicar sua essência sem dizer uma palavra</strong>
+                        <p>Sua imagem chega antes de você. Quando ela fala certo, as portas certas se abrem.</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- ==============================
+         OFERTA / PREÇO
+    =============================== -->
+    <section class="offer">
+        <p class="section-label" style="margin-bottom:32px;">Sua transformação começa agora</p>
+
+        <div class="offer-card">
+            <p class="offer-product-label">Produto Digital</p>
+
+            <h3 class="offer-name">
+                Desafio Luana Laitart<br>
+                <em style="font-style:italic; font-size:.82em; color:var(--brown-light); font-weight:400;">Imagem &amp; Autoridade</em>
+            </h3>
+
+            <div class="offer-hr"></div>
+
+            <p class="offer-price-label">Investimento</p>
+
+            <div class="offer-price">
+                <span class="currency">R$</span>
+                <span>67</span>
+                <span class="cents">,00</span>
+            </div>
+
+            <p class="offer-note">Pagamento único &nbsp;·&nbsp; Acesso imediato</p>
+
+            <a href="#" class="btn btn-block" id="cta-offer">Garantir Minha Vaga</a>
+
+            <p class="offer-secure">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Compra 100% segura &nbsp;·&nbsp; Plataforma criptografada
+            </p>
+        </div>
+    </section>
+
+    <!-- ==============================
+         CTA FINAL
+    =============================== -->
+    <section class="final-cta">
+        <p class="section-label">Não deixe para depois</p>
+
+        <h2 class="section-title">
+            A sua imagem é o seu<br>
+            <em style="font-style:italic;">primeiro negócio.</em>
+        </h2>
+
+        <p class="section-body">
+            Com mais de 2 anos transformando a imagem de mulheres, eu sei que a mudança começa com uma decisão. Essa pode ser a sua.
+        </p>
+
+        <div class="price-badge">
+            <small>Por apenas</small>
+            <strong>R$ 67,00</strong>
+        </div>
+
+        <br>
+
+        <a href="#" class="btn btn-block" id="cta-final">Quero Participar Agora</a>
+
+        <p class="final-hint">Acesso imediato &nbsp;·&nbsp; Pagamento único e seguro</p>
+    </section>
+
+    <!-- ==============================
+         RODAPÉ
+    =============================== -->
+    <footer class="footer">
+        <p>© 2026 Luana Laitart &nbsp;·&nbsp; Mentora de Imagem e Estilo &nbsp;·&nbsp; Todos os direitos reservados</p>
+    </footer>
+
+    <!-- ==============================
+         BOTÃO FIXO (mobile)
+    =============================== -->
+    <div class="sticky-bar" id="sticky-bar">
+        <a href="#" class="btn" id="cta-sticky">Garantir Minha Vaga &nbsp;·&nbsp; R$ 67</a>
+    </div>
+
+    <!-- ==============================
+         SCRIPT
+    =============================== -->
+    <script>
+        /* ==========================================================
+           LINK DO CARRINHO
+           Substitua o valor abaixo pela URL real do seu checkout.
+        ========================================================== */
+        const LINK_CARRINHO = "https://pay.hotmart.com/SUBSTITUA_AQUI";
+
+        function irParaCarrinho(e) {
+            e.preventDefault();
+            window.open(LINK_CARRINHO, "_blank", "noopener,noreferrer");
+        }
+
+        ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener("click", irParaCarrinho);
+        });
+
+        var sticky = document.getElementById("sticky-bar");
+        window.addEventListener("scroll", function() {
+            sticky.style.opacity      = window.scrollY > 180 ? "1" : "0";
+            sticky.style.pointerEvents = window.scrollY > 180 ? "auto" : "none";
+        }, { passive: true });
+        sticky.style.opacity      = "0";
+        sticky.style.transition   = "opacity .3s ease";
+    </script>
+
+</body>
+</html>
