@@ -234,12 +234,11 @@
            SEÇÕES GENÉRICAS DE TEXTO
         ================================================ */
         .section {
-            padding: 0 24px 60px;
+            padding: 56px 24px 60px;
             text-align: center;
         }
 
         .section.alt    { background-color: var(--beige-card); }
-        .section.first  { padding-top: 56px; }
 
         .section-label {
             font-size: 11px;
@@ -696,11 +695,11 @@
             <img src="fotos/foto1.png" alt="Mulher com look impecável e postura confiante, sorrindo">
         </div>
 
-        <p class="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ 47</p>
+        <p class="hero-price-hint" id="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id="preco-hero">47</span></p>
 
         <br>
 
-        <a href="#" class="btn btn-block" id="cta-hero">👉 Quero entrar no desafio</a>
+        <a href="#" class="btn btn-block" id="cta-hero">Quero entrar no desafio</a>
     </section>
 
     <!-- ==============================
@@ -841,7 +840,7 @@
          FEITO PRA VOCÊ SE...
     =============================== -->
     <section class="section-dark">
-        <p class="section-label">Esse desafio foi feito pra você se…</p>
+        <p class="section-label">Esse desafio foi feito pra você</p>
         <h2 class="section-title">Você reconhece pelo menos um desses pontos?</h2>
 
         <ul class="simple-list on-dark">
@@ -853,7 +852,7 @@
             <li><span class="ico">✅</span> Está cansada de comprar peças que não combinam com nada</li>
         </ul>
 
-        <div class="img-frame on-dark">
+        <div class="img-frame on-dark wide">
             <img src="fotos/foto5.png" alt="Luana Laitart falando ao microfone em evento sobre imagem e estilo">
         </div>
     </section>
@@ -955,16 +954,16 @@
             <div class="offer-hr"></div>
 
             <p class="price-old">De <s>R$ 197</s> por apenas</p>
-            <p class="price-window">Nas primeiras 24h</p>
+            <p class="price-window" id="price-window">Nas primeiras 24h</p>
 
             <div class="offer-price">
                 <span class="currency">R$</span>
-                <span>47</span>
+                <span id="preco-offer">47</span>
             </div>
 
-            <p class="price-after">Depois R$ 67 &nbsp;·&nbsp; Pagamento único</p>
+            <p class="price-after">Pagamento único</p>
 
-            <a href="#" class="btn btn-block" id="cta-offer">👉 Garantir minha vaga agora</a>
+            <a href="#" class="btn btn-block" id="cta-offer">Garantir minha vaga agora</a>
 
             <p class="offer-secure">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -983,13 +982,14 @@
         <h2 class="section-title">Vagas limitadas</h2>
 
         <p class="section-body">
-            O desafio começa no dia <strong style="color:var(--gold-light);">[DATA DE INÍCIO]</strong> e as inscrições fecham em <strong style="color:var(--gold-light);">[DATA DE FECHAMENTO]</strong> ou quando as vagas acabarem.
+            O desafio começa no dia <strong style="color:var(--gold-light);">06 de julho</strong> e as inscrições fecham no dia <strong style="color:var(--gold-light);">05 de julho</strong> ou quando as vagas acabarem.
         </p>
         <p class="section-body">
             Se você está lendo isso agora, ainda dá tempo. Mas não espere muito.
         </p>
 
-        <!-- Contador regressivo: ajuste a data-alvo em DATA_LIMITE_INSCRICOES no script no final da página -->
+        <!-- Contador regressivo: 1ª fase conta até FIM_JANELA_24H (fim do preço de R$ 47), 2ª fase conta até DATA_LIMITE_INSCRICOES -->
+        <p class="price-window" id="countdown-label" style="color:rgba(200,144,48,.85); margin-bottom:0;">Termina em</p>
         <div class="countdown" id="countdown">
             <div class="countdown-box"><strong id="cd-dias">00</strong><span>dias</span></div>
             <div class="countdown-box"><strong id="cd-horas">00</strong><span>horas</span></div>
@@ -1002,7 +1002,6 @@
          GARANTIA
     =============================== -->
     <section class="section">
-        <div class="guarantee-icon">🤝</div>
         <p class="section-label">Risco zero</p>
         <h2 class="section-title">Sua transformação é garantida</h2>
 
@@ -1025,18 +1024,14 @@
             <em style="font-style:italic;">completamente você mesma.</em>
         </h2>
 
-        <p class="section-body">
-            Isso começa agora. Em 7 dias.
-        </p>
-
         <div class="price-badge">
-            <small>Primeiras 24h</small>
-            <strong>R$ 47,00</strong>
+            <small id="preco-badge-label">Primeiras 24h</small>
+            <strong>R$ <span id="preco-badge">47</span>,00</strong>
         </div>
 
         <br>
 
-        <a href="#" class="btn btn-block" id="cta-final">👉 Sim, quero entrar no Desafio Look Pronto</a>
+        <a href="#" class="btn btn-block" id="cta-final">Sim, quero entrar no Desafio Look Pronto</a>
 
         <p class="final-hint">Acesso imediato &nbsp;·&nbsp; Pagamento único e seguro</p>
     </section>
@@ -1052,7 +1047,7 @@
          BOTÃO FIXO (mobile)
     =============================== -->
     <div class="sticky-bar" id="sticky-bar">
-        <a href="#" class="btn" id="cta-sticky">👉 Entrar no desafio &nbsp;·&nbsp; R$ 47</a>
+        <a href="#" class="btn" id="cta-sticky">Entrar no desafio &nbsp;·&nbsp; R$ <span id="preco-sticky">47</span></a>
     </div>
 
     <!-- ==============================
@@ -1060,20 +1055,63 @@
     =============================== -->
     <script>
         /* ==========================================================
-           LINK DO CARRINHO
-           Substitua o valor abaixo pela URL real do seu checkout.
+           LINKS DA HOTMART
+           Primeiras 24h (a partir de INICIO_OFERTA): link cheio (R$ 47).
+           Depois de 24h: link com o cupom de desconto (off=we4i2r8x).
         ========================================================== */
-        const LINK_CARRINHO = "https://pay.kiwify.com.br/hd86qVQ?fbclid=PARlRTSASe5q1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadkbq3I3iey2OryDl1H4uYJERQJakeAj3wR9ceBaZQPeR-FzzFQl8oVLRdm7w_aem_18kC8_dKDNgZRVSXEkfTXg";
+        const LINK_HOTMART_24H   = "https://pay.hotmart.com/K106370442G";
+        const LINK_HOTMART_APOS  = "https://pay.hotmart.com/K106370442G?off=we4i2r8x";
+
+        const INICIO_OFERTA      = new Date("2026-06-22T00:00:00-03:00"); // dia 22: preço de R$ 47
+        const FIM_JANELA_24H     = new Date(INICIO_OFERTA.getTime() + 24 * 60 * 60 * 1000); // dia 23: preço de R$ 67
+
+        function linkCarrinhoAtual() {
+            return new Date() < FIM_JANELA_24H ? LINK_HOTMART_24H : LINK_HOTMART_APOS;
+        }
 
         function irParaCarrinho(e) {
             e.preventDefault();
-            window.open(LINK_CARRINHO, "_blank", "noopener,noreferrer");
+            window.open(linkCarrinhoAtual(), "_blank", "noopener,noreferrer");
         }
 
         ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener("click", irParaCarrinho);
         });
+
+        /* ==========================================================
+           PREÇO DINÂMICO
+           Troca os valores exibidos de R$ 47 para R$ 67 automaticamente
+           quando a janela das 24h termina.
+        ========================================================== */
+        const PRECO_24H  = 47;
+        const PRECO_APOS = 67;
+
+        function atualizarPrecos() {
+            var dentroDaJanela = new Date() < FIM_JANELA_24H;
+            var preco = dentroDaJanela ? PRECO_24H : PRECO_APOS;
+
+            ["preco-hero", "preco-offer", "preco-badge", "preco-sticky"].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = preco;
+            });
+
+            var label = document.getElementById("preco-badge-label");
+            if (label) label.textContent = dentroDaJanela ? "Primeiras 24h" : "Oferta atual";
+
+            var heroHint = document.getElementById("hero-price-hint");
+            if (heroHint) {
+                heroHint.innerHTML = dentroDaJanela
+                    ? "Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id=\"preco-hero\">" + preco + "</span>"
+                    : "Acesso imediato &nbsp;·&nbsp; Oferta atual por R$ <span id=\"preco-hero\">" + preco + "</span>";
+            }
+
+            var priceWindow = document.getElementById("price-window");
+            if (priceWindow) priceWindow.textContent = dentroDaJanela ? "Nas primeiras 24h" : "Oferta por tempo limitado";
+        }
+
+        atualizarPrecos();
+        setInterval(atualizarPrecos, 1000);
 
         var sticky = document.getElementById("sticky-bar");
         window.addEventListener("scroll", function() {
@@ -1085,13 +1123,19 @@
 
         /* ==========================================================
            CONTADOR REGRESSIVO
-           Substitua a data abaixo pela data real de fechamento das inscrições.
+           1ª fase: conta até FIM_JANELA_24H (fim do preço de R$ 47).
+           2ª fase: depois disso, passa a contar até DATA_LIMITE_INSCRICOES.
         ========================================================== */
-        const DATA_LIMITE_INSCRICOES = new Date("2026-06-23T23:59:59-03:00");
+        const DATA_LIMITE_INSCRICOES = new Date("2026-07-05T23:59:59-03:00");
 
         function atualizarContador() {
-            var agora    = new Date();
-            var restante = DATA_LIMITE_INSCRICOES - agora;
+            var agora = new Date();
+            var dentroDaJanela = agora < FIM_JANELA_24H;
+            var alvo  = dentroDaJanela ? FIM_JANELA_24H : DATA_LIMITE_INSCRICOES;
+            var restante = alvo - agora;
+
+            var label = document.getElementById("countdown-label");
+            if (label) label.textContent = dentroDaJanela ? "Preço de R$ 47 termina em" : "Inscrições terminam em";
 
             if (restante < 0) restante = 0;
 
