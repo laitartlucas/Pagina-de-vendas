@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Luana Laitart | Mentora de Imagem e Estilo</title>
+    <title>Desafio Look Pronto | Luana Laitart — Mentora de Imagem e Estilo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="fotos/foto1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="fotos/logo.png">
 
     <style>
         /* ================================================
-           PALETA — extraída diretamente do logo foto1.png
+           PALETA — extraída diretamente do logo logo.png
            · Fundo logo:  #E8E3DC  (bege quente)
            · Círculo/txt: #3A2010  (marrom escuro)
            · Ouro escuro: #A87020
@@ -42,7 +42,7 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--beige);
             color: var(--text-dark);
             line-height: 1.65;
@@ -110,11 +110,11 @@
         }
 
         .hero-headline {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(34px, 8.5vw, 56px);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(32px, 8vw, 52px);
             font-weight: 600;
             color: var(--white);
-            line-height: 1.12;
+            line-height: 1.16;
             margin-bottom: 24px;
             max-width: 640px;
             margin-left: auto;
@@ -133,13 +133,13 @@
             font-size: 16px;
             color: rgba(232,227,220,.72);
             max-width: 480px;
-            margin: 0 auto 40px;
+            margin: 0 auto 8px;
             font-weight: 300;
             line-height: 1.75;
         }
 
         .hero-price-hint {
-            margin-top: 18px;
+            margin-top: 26px;
             font-size: 13px;
             color: rgba(200,144,48,.6);
             letter-spacing: .05em;
@@ -152,7 +152,7 @@
             display: inline-block;
             background: var(--grad-gold);
             color: var(--brown-dark);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 13.5px;
             letter-spacing: .15em;
@@ -208,28 +208,54 @@
         .ornament span { font-size: 15px; color: var(--gold-mid); line-height: 1; }
 
         /* ================================================
-           PARA QUEM É
+           IMAGENS — moldura padrão usada em todas as seções
         ================================================ */
-        .forwho {
-            padding: 0 24px 56px;
+        .img-frame {
+            width: 100%;
+            max-width: 320px;
+            margin: 36px auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 44px rgba(58,32,16,.16);
+            border: 1px solid rgba(168,112,32,.18);
+        }
+
+        .img-frame img { width: 100%; display: block; }
+
+        .img-frame.wide   { max-width: 440px; }
+        .img-frame.narrow { max-width: 240px; }
+
+        .img-frame.on-dark {
+            border-color: rgba(200,144,48,.32);
+            box-shadow: 0 14px 50px rgba(0,0,0,.4);
+        }
+
+        /* ================================================
+           SEÇÕES GENÉRICAS DE TEXTO
+        ================================================ */
+        .section {
+            padding: 0 24px 60px;
             text-align: center;
         }
+
+        .section.alt    { background-color: var(--beige-card); }
+        .section.first  { padding-top: 56px; }
 
         .section-label {
             font-size: 11px;
             letter-spacing: .26em;
             text-transform: uppercase;
             color: var(--gold-dark);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 14px;
         }
 
         .section-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(26px, 5.5vw, 40px);
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(25px, 5.5vw, 38px);
             font-weight: 600;
             color: var(--brown-dark);
-            line-height: 1.2;
+            line-height: 1.25;
             margin-bottom: 20px;
         }
 
@@ -241,16 +267,54 @@
             margin: 0 auto;
         }
 
+        .section-body + .section-body { margin-top: 16px; }
+
         /* ================================================
-           BENEFÍCIOS
+           LISTAS SIMPLES (❌ / ✅ / 💛)
         ================================================ */
-        .benefits {
+        .simple-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+            max-width: 460px;
+            margin: 36px auto 0;
+        }
+
+        .simple-list li {
+            font-size: 15px;
+            color: var(--brown-mid);
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+        }
+
+        .simple-list li .ico { flex-shrink: 0; font-size: 16px; line-height: 1.5; }
+
+        .simple-list.on-dark li { color: rgba(232,227,220,.75); }
+
+        .closing-note {
+            font-size: 15px;
+            color: var(--brown-mid);
+            max-width: 480px;
+            margin: 32px auto 0;
+            line-height: 1.8;
+        }
+
+        .closing-note strong { color: var(--gold-dark); }
+
+        /* ================================================
+           SEÇÕES EM FUNDO ESCURO (genérico)
+        ================================================ */
+        .section-dark {
             background-color: var(--brown-dark);
             padding: 56px 24px 60px;
+            text-align: center;
             position: relative;
         }
 
-        .benefits::before {
+        .section-dark::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -258,60 +322,111 @@
             background: var(--grad-gold);
         }
 
-        .benefits-inner {
-            max-width: 580px;
-            margin: 0 auto;
-            text-align: center;
-        }
+        .section-dark .section-label { color: rgba(200,144,48,.85); }
+        .section-dark .section-title { color: var(--white); }
+        .section-dark .section-body  { color: rgba(232,227,220,.68); }
 
-        .benefits .section-label { color: rgba(200,144,48,.8); }
-        .benefits .section-title { color: var(--white); margin-bottom: 40px; }
-
-        .benefits-list {
-            list-style: none;
-            text-align: left;
+        /* ================================================
+           TIMELINE — 7 DIAS DO DESAFIO
+        ================================================ */
+        .timeline {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
+            max-width: 560px;
+            margin: 40px auto 0;
+            text-align: left;
         }
 
-        .benefit-item {
+        .timeline-item {
             display: flex;
-            align-items: flex-start;
             gap: 18px;
+            align-items: flex-start;
+            background: var(--white);
+            border: 1px solid rgba(168,112,32,.16);
+            border-radius: 10px;
+            padding: 18px 20px;
+            box-shadow: 0 4px 24px rgba(58,32,16,.05);
         }
 
-        .benefit-dot {
+        .timeline-day {
             flex-shrink: 0;
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            border: 1px solid rgba(200,144,48,.35);
-            background: rgba(200,144,48,.08);
+            background: var(--grad-gold);
+            color: var(--brown-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 3px;
-            color: var(--gold-light);
-            font-size: 12px;
-            font-weight: 600;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 16px;
         }
 
-        .benefit-content strong {
+        .timeline-content strong {
             display: block;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--gold-light);
-            line-height: 1.2;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 16.5px;
+            color: var(--brown-dark);
+            margin-bottom: 3px;
         }
 
-        .benefit-content p {
-            font-size: 14px;
-            color: rgba(232,227,220,.65);
-            line-height: 1.65;
+        .timeline-content p { font-size: 13px; color: var(--brown-light); }
+
+        /* ================================================
+           DEPOIMENTOS
+        ================================================ */
+        .testimonials-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 400px;
+            margin: 40px auto 0;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid rgba(168,112,32,.16);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 36px rgba(58,32,16,.08);
+            text-align: left;
+        }
+
+        .testimonial-chat {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .testimonial-outfit {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-body { padding: 18px 20px 22px; }
+
+        .testimonial-body .quote {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--brown-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10.5px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            font-weight: 600;
         }
 
         /* ================================================
@@ -326,7 +441,7 @@
             background: var(--white);
             border: 1px solid rgba(168,112,32,.18);
             border-radius: 10px;
-            padding: 48px 32px 40px;
+            padding: 44px 32px 40px;
             max-width: 400px;
             margin: 0 auto;
             box-shadow: 0 8px 52px rgba(58,32,16,.08);
@@ -337,13 +452,13 @@
             letter-spacing: .25em;
             text-transform: uppercase;
             color: var(--gold-dark);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
         .offer-name {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 26px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
             font-weight: 600;
             color: var(--brown-dark);
             line-height: 1.25;
@@ -353,24 +468,32 @@
         .offer-hr {
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(168,112,32,.25), transparent);
-            margin: 0 auto 28px;
+            margin: 0 auto 24px;
         }
 
-        .offer-price-label {
+        .price-old {
+            font-size: 14px;
+            color: var(--brown-light);
+            margin-bottom: 10px;
+        }
+
+        .price-old s { text-decoration-color: var(--gold-mid); }
+
+        .price-window {
             font-size: 11px;
-            letter-spacing: .15em;
+            letter-spacing: .12em;
             text-transform: uppercase;
             color: var(--brown-light);
             margin-bottom: 8px;
         }
 
         .offer-price {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 64px;
             font-weight: 600;
             color: var(--brown-dark);
             line-height: 1;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
@@ -378,9 +501,8 @@
         }
 
         .offer-price .currency { font-size: 22px; margin-top: 10px; font-weight: 500; }
-        .offer-price .cents    { font-size: 22px; margin-top: 10px; font-weight: 500; }
 
-        .offer-note {
+        .price-after {
             font-size: 13px;
             color: var(--brown-light);
             margin-bottom: 32px;
@@ -396,6 +518,48 @@
             color: var(--brown-light);
             letter-spacing: .03em;
         }
+
+        /* ================================================
+           CONTADOR REGRESSIVO
+        ================================================ */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0 8px;
+        }
+
+        .countdown-box {
+            background: rgba(200,144,48,.1);
+            border: 1px solid rgba(200,144,48,.3);
+            border-radius: 8px;
+            padding: 12px 14px;
+            min-width: 58px;
+            text-align: center;
+        }
+
+        .countdown-box strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            color: var(--gold-light);
+            line-height: 1;
+        }
+
+        .countdown-box span {
+            font-size: 9.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(232,227,220,.55);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ================================================
+           GARANTIA
+        ================================================ */
+        .guarantee-icon { font-size: 38px; margin-bottom: 18px; }
 
         /* ================================================
            CTA FINAL
@@ -418,7 +582,7 @@
         .final-cta .section-title {
             color: var(--white);
             margin-bottom: 16px;
-            max-width: 500px;
+            max-width: 520px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -447,7 +611,7 @@
         }
 
         .price-badge strong {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Playfair Display', Georgia, serif;
             font-size: 24px;
             font-weight: 600;
             color: var(--gold-light);
@@ -507,7 +671,7 @@
     =============================== -->
     <header class="header">
         <img
-            src="fotos/foto1.png"
+            src="fotos/logo.png"
             alt="Logo Luana Laitart — Mentora de Imagem e Estilo"
             class="logo-img"
         >
@@ -518,19 +682,25 @@
          HERO
     =============================== -->
     <section class="hero">
-        <div class="hero-badge">+2 anos transformando imagens</div>
+        <div class="hero-badge">Desafio Look Pronto · 7 dias</div>
 
         <h1 class="hero-headline">
-            Chegou a hora de ser vista como a&nbsp;<em>especialista</em>&nbsp;que você já é.
+            10 peças. 40 looks. <em>7 dias</em> para nunca mais ficar perdida na frente do guarda-roupa.
         </h1>
 
         <p class="hero-sub">
-            Um desafio prático de imagem e estilo criado para mulheres empreendedoras que querem ser reconhecidas com autoridade — antes mesmo de abrir a boca.
+            O método que vai destravar sua imagem, multiplicar seus looks e fazer você sair de casa todos os dias se sentindo segura, estilosa e completamente você mesma.
         </p>
 
-        <a href="#" class="btn btn-block" id="cta-hero">Quero Participar Agora</a>
+        <div class="img-frame on-dark">
+            <img src="fotos/foto1.png" alt="Mulher com look impecável e postura confiante, sorrindo">
+        </div>
 
-        <p class="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Apenas R$ 67,00</p>
+        <p class="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ 47</p>
+
+        <br>
+
+        <a href="#" class="btn btn-block" id="cta-hero">👉 Quero entrar no desafio</a>
     </section>
 
     <!-- ==============================
@@ -539,92 +709,262 @@
     <div class="ornament"><span>✦</span></div>
 
     <!-- ==============================
-         PARA QUEM É
+         VOCÊ SE IDENTIFICA?
     =============================== -->
-    <section class="forwho">
-        <p class="section-label">Este desafio é para você que…</p>
-        <h2 class="section-title">
-            Se veste todos os dias, mas ainda<br>
-            <em style="font-style:italic;">não se sente poderosa.</em>
-        </h2>
-        <p class="section-body">
-            Se você é empreendedora, profissional liberal ou líder e sente que a sua imagem ainda não reflete o tamanho do seu trabalho — este desafio foi criado exatamente para você.
+    <section class="section first">
+        <p class="section-label">Isso já aconteceu com você?</p>
+        <h2 class="section-title">Você se identifica com alguma dessas situações?</h2>
+
+        <div class="img-frame narrow">
+            <img src="fotos/foto2.png" alt="Mulher de costas olhando para o guarda-roupa cheio de roupas, sem saber o que vestir">
+        </div>
+
+        <ul class="simple-list">
+            <li><span class="ico">❌</span> Abre o guarda-roupa todo dia e trava sem saber o que vestir</li>
+            <li><span class="ico">❌</span> Tem roupas mas sente que não tem nada pra colocar</li>
+            <li><span class="ico">❌</span> Perde tempo demais se arrumando e ainda sai insatisfeita</li>
+            <li><span class="ico">❌</span> Compra peças novas mas elas nunca combinam com nada</li>
+            <li><span class="ico">❌</span> Sente que suas roupas não refletem quem você realmente é</li>
+            <li><span class="ico">❌</span> Chega em compromissos importantes sem se sentir bem posicionada</li>
+        </ul>
+
+        <p class="closing-note">
+            Se você marcou pelo menos um desses pontos, saiba que isso não é falta de estilo. É falta de um método. E é exatamente isso que o <strong>Desafio Look Pronto</strong> resolve.
         </p>
     </section>
 
     <!-- ==============================
-         BENEFÍCIOS
+         A SOLUÇÃO JÁ ESTÁ NO GUARDA-ROUPA
     =============================== -->
-    <section class="benefits">
-        <div class="benefits-inner">
-            <p class="section-label">O que você vai conquistar</p>
-            <h2 class="section-title">Em poucos dias, você vai aprender a</h2>
+    <section class="section alt">
+        <p class="section-label">A virada de chave</p>
+        <h2 class="section-title">E se a solução já estivesse dentro do seu <em style="font-style:italic;">guarda-roupa</em>?</h2>
 
-            <ul class="benefits-list">
+        <p class="section-body">
+            A maioria das mulheres não precisa de mais roupas. Precisa aprender a usar o que já tem com intenção, clareza e método.
+        </p>
+        <p class="section-body">
+            Com apenas <strong>10 peças estratégicas</strong> é possível criar <strong>40 looks completamente diferentes</strong>. Para o trabalho, o dia a dia, os encontros e os momentos que importam.
+        </p>
+        <p class="section-body">
+            Isso não é mágica. É o <strong>Desafio Look Pronto.</strong>
+        </p>
 
-                <li class="benefit-item">
-                    <div class="benefit-dot">I</div>
-                    <div class="benefit-content">
-                        <strong>Descobrir seu estilo autêntico de autoridade</strong>
-                        <p>Entenda quais cores, formas e combinações comunicam o que você quer transmitir — sem abrir mão da sua personalidade.</p>
-                    </div>
-                </li>
-
-                <li class="benefit-item">
-                    <div class="benefit-dot">II</div>
-                    <div class="benefit-content">
-                        <strong>Construir uma imagem que atrai os clientes certos</strong>
-                        <p>Use a moda como ferramenta de posicionamento e seja reconhecida como referência no seu mercado.</p>
-                    </div>
-                </li>
-
-                <li class="benefit-item">
-                    <div class="benefit-dot">III</div>
-                    <div class="benefit-content">
-                        <strong>Se sentir confiante em qualquer situação</strong>
-                        <p>Da reunião importante à foto do Instagram — saiba exatamente o que vestir e por quê, sem gastar mais por isso.</p>
-                    </div>
-                </li>
-
-                <li class="benefit-item">
-                    <div class="benefit-dot">IV</div>
-                    <div class="benefit-content">
-                        <strong>Comunicar sua essência sem dizer uma palavra</strong>
-                        <p>Sua imagem chega antes de você. Quando ela fala certo, as portas certas se abrem.</p>
-                    </div>
-                </li>
-
-            </ul>
+        <div class="img-frame wide">
+            <img src="fotos/foto3.png" alt="Flatlay de peças de roupa organizadas formando uma base de guarda-roupa estratégica">
         </div>
+    </section>
+
+    <!-- ==============================
+         APRESENTANDO O DESAFIO
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">O programa</p>
+        <h2 class="section-title">Apresentando o <em style="font-style:italic;">Desafio Look Pronto</em></h2>
+        <p class="section-body" style="margin-bottom:18px; font-style:italic;">
+            7 dias para destravar sua imagem e transformar sua relação com o guarda-roupa de vez.
+        </p>
+
+        <p class="section-body">
+            O Desafio Look Pronto é um programa intensivo de 7 dias onde você vai aprender, na prática, como construir uma base de looks que funciona de verdade, com clareza, estilo e muita confiança.
+        </p>
+        <p class="section-body">
+            Cada dia tem um tema, uma entrega e uma transformação real. No sétimo dia você vai ter em mãos um guarda-roupa que trabalha por você.
+        </p>
+
+        <div class="img-frame on-dark">
+            <img src="fotos/foto4.png" alt="Luana Laitart apresentando o Desafio Look Pronto com um tablet em mãos">
+        </div>
+    </section>
+
+    <!-- ==============================
+         O QUE ACONTECE EM CADA DIA
+    =============================== -->
+    <section class="section">
+        <p class="section-label">Estrutura do desafio</p>
+        <h2 class="section-title">O que acontece em cada dia:</h2>
+
+        <ol class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-day">1</div>
+                <div class="timeline-content">
+                    <strong>Diagnóstico do guarda-roupa</strong>
+                    <p>Clareza do que você tem e o que realmente usar</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">2</div>
+                <div class="timeline-content">
+                    <strong>As 10 peças-base</strong>
+                    <p>Identificar e selecionar sua base estratégica</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">3</div>
+                <div class="timeline-content">
+                    <strong>Entendendo os estilos</strong>
+                    <p>Reconhecer o estilo de cada peça e o seu</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">4</div>
+                <div class="timeline-content">
+                    <strong>A lógica da multiplicação</strong>
+                    <p>Como combinar peças para gerar mais looks</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">5</div>
+                <div class="timeline-content">
+                    <strong>Montando os 40 looks</strong>
+                    <p>Construção prática dos looks na sua realidade</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">6</div>
+                <div class="timeline-content">
+                    <strong>Imagem e posicionamento</strong>
+                    <p>Como seus looks comunicam quem você é</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">7</div>
+                <div class="timeline-content">
+                    <strong>Look Pronto para sempre</strong>
+                    <p>Método consolidado + guarda-roupa funcionando</p>
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <!-- ==============================
+         FEITO PRA VOCÊ SE...
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">Esse desafio foi feito pra você se…</p>
+        <h2 class="section-title">Você reconhece pelo menos um desses pontos?</h2>
+
+        <ul class="simple-list on-dark">
+            <li><span class="ico">✅</span> Você sente que não aproveita metade do que tem no guarda-roupa</li>
+            <li><span class="ico">✅</span> Perde tempo toda manhã decidindo o que vestir</li>
+            <li><span class="ico">✅</span> Quer se sentir mais segura e bem posicionada na sua imagem</li>
+            <li><span class="ico">✅</span> Sente que suas roupas não refletem quem você é</li>
+            <li><span class="ico">✅</span> Quer praticidade sem abrir mão do estilo</li>
+            <li><span class="ico">✅</span> Está cansada de comprar peças que não combinam com nada</li>
+        </ul>
+
+        <div class="img-frame on-dark">
+            <img src="fotos/foto5.png" alt="Luana Laitart falando ao microfone em evento sobre imagem e estilo">
+        </div>
+    </section>
+
+    <!-- ==============================
+         DEPOIMENTOS
+    =============================== -->
+    <section class="section alt">
+        <p class="section-label">Resultados reais</p>
+        <h2 class="section-title">O que dizem as mulheres que já viveram essa transformação:</h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img class="testimonial-chat" src="fotos/foto6.png" alt="Print de conversa: estou aplicando vários looks novos com minhas peças">
+                <img class="testimonial-outfit" src="fotos/foto6_1.png" alt="Aluna usando dois looks diferentes montados com as próprias peças">
+                <div class="testimonial-body">
+                    <p class="quote">"Estou aplicando vários looks novos com minhas peças 🥳"</p>
+                    <span class="testimonial-tag">✅ Looks novos sem comprar nada</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img class="testimonial-chat" src="fotos/foto7.png" alt="Print de conversa: meu irmão me viu na quinta e disse que troquei o guarda-roupa">
+                <img class="testimonial-outfit" src="fotos/foto8.png" alt="Aluna usando dois looks diferentes montados com peças que já tinha">
+                <div class="testimonial-body">
+                    <p class="quote">"Meu irmão me viu na quinta e disse: trocou o guarda-roupa hahah"</p>
+                    <span class="testimonial-tag">✅ Look novo com peças que já tinha</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img class="testimonial-chat" src="fotos/foto8_1.png" alt="Print de conversa: que incrível poder me vestir com o que tenho e ainda valorizar meu corpo">
+                <img class="testimonial-outfit" src="fotos/foto9.png" alt="Aluna usando look montado valorizando o próprio corpo">
+                <div class="testimonial-body">
+                    <p class="quote">"Que incrível poder me vestir com o que tenho e ainda valorizar meu corpo."</p>
+                    <span class="testimonial-tag">✅ Valorizou o próprio corpo, sem comprar nada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         QUEM VAI TE GUIAR
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">Sua mentora</p>
+        <h2 class="section-title">Quem vai te guiar nesses 7 dias</h2>
+
+        <div class="img-frame on-dark narrow">
+            <img src="fotos/foto10.png" alt="Luana Laitart, consultora de imagem e estilo">
+        </div>
+
+        <p class="section-body" style="margin-top:32px;">
+            Sou Luana Laitart, consultora de imagem e estilo, e há 5 anos oriento mulheres a construírem uma relação de clareza, confiança e intenção com o próprio guarda-roupa.
+        </p>
+        <p class="section-body">
+            Já acompanhei dezenas de mulheres que chegaram até mim se sentindo perdidas na frente do espelho e hoje se vestem com segurança, propósito e muito mais leveza.
+        </p>
+        <p class="section-body">
+            O Desafio Look Pronto é o caminho mais direto e prático que eu conheço para essa transformação acontecer, e acontecer rápido.
+        </p>
+    </section>
+
+    <!-- ==============================
+         TUDO QUE VOCÊ RECEBE
+    =============================== -->
+    <section class="section">
+        <p class="section-label">O que está incluso</p>
+        <h2 class="section-title">Tudo que você recebe no Desafio Look Pronto:</h2>
+
+        <ul class="simple-list">
+            <li><span class="ico">💛</span> 7 dias de entrega e conteúdo em formato variado</li>
+            <li><span class="ico">💛</span> Método das 10 peças para 40 looks</li>
+            <li><span class="ico">💛</span> Guia de estilos e combinações</li>
+            <li><span class="ico">💛</span> Suporte diário durante o desafio</li>
+            <li><span class="ico">💛</span> Comunidade de mulheres em transformação</li>
+            <li><span class="ico">💛</span> Bônus: aula ao vivo</li>
+        </ul>
     </section>
 
     <!-- ==============================
          OFERTA / PREÇO
     =============================== -->
-    <section class="offer">
-        <p class="section-label" style="margin-bottom:32px;">Sua transformação começa agora</p>
+    <section class="offer" style="background-color:var(--beige-card);">
+        <p class="section-label" style="margin-bottom:0;">Sua transformação começa agora</p>
 
-        <div class="offer-card">
-            <p class="offer-product-label">Produto Digital</p>
+        <div class="img-frame wide">
+            <img src="fotos/foto11.png" alt="Guia completo do Desafio Look Pronto em formato impresso e digital">
+        </div>
+
+        <div class="offer-card" style="margin-top:36px;">
+            <p class="offer-product-label">Oferta especial</p>
 
             <h3 class="offer-name">
-                Desafio Luana Laitart<br>
-                <em style="font-style:italic; font-size:.82em; color:var(--brown-light); font-weight:400;">Imagem &amp; Autoridade</em>
+                Desafio Look Pronto<br>
+                <em style="font-style:italic; font-size:.82em; color:var(--brown-light); font-weight:400;">10 peças, 40 looks, 7 dias</em>
             </h3>
 
             <div class="offer-hr"></div>
 
-            <p class="offer-price-label">Investimento</p>
+            <p class="price-old">De <s>R$ 197</s> por apenas</p>
+            <p class="price-window">Nas primeiras 24h</p>
 
             <div class="offer-price">
                 <span class="currency">R$</span>
-                <span>67</span>
-                <span class="cents">,00</span>
+                <span>47</span>
             </div>
 
-            <p class="offer-note">Pagamento único &nbsp;·&nbsp; Acesso imediato</p>
+            <p class="price-after">Depois R$ 67 &nbsp;·&nbsp; Pagamento único</p>
 
-            <a href="#" class="btn btn-block" id="cta-offer">Garantir Minha Vaga</a>
+            <a href="#" class="btn btn-block" id="cta-offer">👉 Garantir minha vaga agora</a>
 
             <p class="offer-secure">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -636,28 +976,67 @@
     </section>
 
     <!-- ==============================
+         VAGAS LIMITADAS + CONTADOR
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">Atenção</p>
+        <h2 class="section-title">Vagas limitadas</h2>
+
+        <p class="section-body">
+            O desafio começa no dia <strong style="color:var(--gold-light);">[DATA DE INÍCIO]</strong> e as inscrições fecham em <strong style="color:var(--gold-light);">[DATA DE FECHAMENTO]</strong> ou quando as vagas acabarem.
+        </p>
+        <p class="section-body">
+            Se você está lendo isso agora, ainda dá tempo. Mas não espere muito.
+        </p>
+
+        <!-- Contador regressivo: ajuste a data-alvo em DATA_LIMITE_INSCRICOES no script no final da página -->
+        <div class="countdown" id="countdown">
+            <div class="countdown-box"><strong id="cd-dias">00</strong><span>dias</span></div>
+            <div class="countdown-box"><strong id="cd-horas">00</strong><span>horas</span></div>
+            <div class="countdown-box"><strong id="cd-min">00</strong><span>min</span></div>
+            <div class="countdown-box"><strong id="cd-seg">00</strong><span>seg</span></div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         GARANTIA
+    =============================== -->
+    <section class="section">
+        <div class="guarantee-icon">🤝</div>
+        <p class="section-label">Risco zero</p>
+        <h2 class="section-title">Sua transformação é garantida</h2>
+
+        <p class="section-body">
+            Se em 7 dias você aplicar o método e não sentir diferença nenhuma na sua relação com o guarda-roupa, eu devolvo o seu investimento. Sem burocracia, sem perguntas.
+        </p>
+        <p class="section-body">
+            Porque eu sei o que esse desafio é capaz de fazer e quero que você entre com total segurança.
+        </p>
+    </section>
+
+    <!-- ==============================
          CTA FINAL
     =============================== -->
     <section class="final-cta">
         <p class="section-label">Não deixe para depois</p>
 
         <h2 class="section-title">
-            A sua imagem é o seu<br>
-            <em style="font-style:italic;">primeiro negócio.</em>
+            Você merece sair de casa todos os dias se sentindo segura, estilosa e<br>
+            <em style="font-style:italic;">completamente você mesma.</em>
         </h2>
 
         <p class="section-body">
-            Com mais de 2 anos transformando a imagem de mulheres, eu sei que a mudança começa com uma decisão. Essa pode ser a sua.
+            Isso começa agora. Em 7 dias.
         </p>
 
         <div class="price-badge">
-            <small>Por apenas</small>
-            <strong>R$ 67,00</strong>
+            <small>Primeiras 24h</small>
+            <strong>R$ 47,00</strong>
         </div>
 
         <br>
 
-        <a href="#" class="btn btn-block" id="cta-final">Quero Participar Agora</a>
+        <a href="#" class="btn btn-block" id="cta-final">👉 Sim, quero entrar no Desafio Look Pronto</a>
 
         <p class="final-hint">Acesso imediato &nbsp;·&nbsp; Pagamento único e seguro</p>
     </section>
@@ -666,14 +1045,14 @@
          RODAPÉ
     =============================== -->
     <footer class="footer">
-        <p>© 2026 Luana Laitart &nbsp;·&nbsp; Mentora de Imagem e Estilo &nbsp;·&nbsp; Todos os direitos reservados</p>
+        <p>© 2026 Luana Laitart &nbsp;·&nbsp; Desafio Look Pronto &nbsp;·&nbsp; Todos os direitos reservados</p>
     </footer>
 
     <!-- ==============================
          BOTÃO FIXO (mobile)
     =============================== -->
     <div class="sticky-bar" id="sticky-bar">
-        <a href="#" class="btn" id="cta-sticky">Garantir Minha Vaga &nbsp;·&nbsp; R$ 67</a>
+        <a href="#" class="btn" id="cta-sticky">👉 Entrar no desafio &nbsp;·&nbsp; R$ 47</a>
     </div>
 
     <!-- ==============================
@@ -684,7 +1063,7 @@
            LINK DO CARRINHO
            Substitua o valor abaixo pela URL real do seu checkout.
         ========================================================== */
-        const LINK_CARRINHO = "https://pay.hotmart.com/SUBSTITUA_AQUI";
+        const LINK_CARRINHO = "https://pay.kiwify.com.br/hd86qVQ?fbclid=PARlRTSASe5q1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadkbq3I3iey2OryDl1H4uYJERQJakeAj3wR9ceBaZQPeR-FzzFQl8oVLRdm7w_aem_18kC8_dKDNgZRVSXEkfTXg";
 
         function irParaCarrinho(e) {
             e.preventDefault();
@@ -703,6 +1082,34 @@
         }, { passive: true });
         sticky.style.opacity      = "0";
         sticky.style.transition   = "opacity .3s ease";
+
+        /* ==========================================================
+           CONTADOR REGRESSIVO
+           Substitua a data abaixo pela data real de fechamento das inscrições.
+        ========================================================== */
+        const DATA_LIMITE_INSCRICOES = new Date("2026-06-23T23:59:59-03:00");
+
+        function atualizarContador() {
+            var agora    = new Date();
+            var restante = DATA_LIMITE_INSCRICOES - agora;
+
+            if (restante < 0) restante = 0;
+
+            var dias  = Math.floor(restante / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+            var min   = Math.floor((restante / (1000 * 60)) % 60);
+            var seg   = Math.floor((restante / 1000) % 60);
+
+            var pad = function(n) { return String(n).padStart(2, "0"); };
+
+            document.getElementById("cd-dias").textContent  = pad(dias);
+            document.getElementById("cd-horas").textContent = pad(horas);
+            document.getElementById("cd-min").textContent   = pad(min);
+            document.getElementById("cd-seg").textContent   = pad(seg);
+        }
+
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
     </script>
 
 </body>
