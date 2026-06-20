@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Look Pronto | Luana Laitart — Mentora de Imagem e Estilo</title>
+    <title>Desafio Look Pronto | 40 Looks com Apenas 10 Peças — Luana Laitart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -115,7 +115,7 @@
             font-weight: 600;
             color: var(--white);
             line-height: 1.16;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             max-width: 640px;
             margin-left: auto;
             margin-right: auto;
@@ -127,15 +127,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        .hero-sub {
-            font-size: 16px;
-            color: rgba(232,227,220,.72);
-            max-width: 480px;
-            margin: 0 auto 8px;
-            font-weight: 300;
-            line-height: 1.75;
         }
 
         .hero-price-hint {
@@ -293,6 +284,24 @@
 
         .simple-list.on-dark li { color: rgba(232,227,220,.75); }
 
+        /* título + descrição de módulos dentro de simple-list */
+        .simple-list .feature-title {
+            display: block;
+            font-weight: 700;
+            color: var(--brown-dark);
+            margin-bottom: 4px;
+        }
+
+        .simple-list.on-dark .feature-title { color: var(--white); }
+
+        .simple-list .feature-desc {
+            font-size: 13.5px;
+            color: var(--brown-light);
+            line-height: 1.55;
+        }
+
+        .simple-list.on-dark .feature-desc { color: rgba(232,227,220,.65); }
+
         .closing-note {
             font-size: 15px;
             color: var(--brown-mid);
@@ -302,6 +311,9 @@
         }
 
         .closing-note strong { color: var(--gold-dark); }
+
+        .closing-note.on-dark { color: rgba(232,227,220,.75); }
+        .closing-note.on-dark strong { color: var(--gold-light); }
 
         /* ================================================
            SEÇÕES EM FUNDO ESCURO (genérico)
@@ -326,7 +338,29 @@
         .section-dark .section-body  { color: rgba(232,227,220,.68); }
 
         /* ================================================
-           TIMELINE — 7 DIAS DO DESAFIO
+           CITAÇÕES — "Você se reconhece nessas frases?"
+        ================================================ */
+        .quote-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 440px;
+            margin: 36px auto 0;
+            text-align: left;
+        }
+
+        .quote-list li {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--brown-dark);
+            padding-left: 18px;
+            border-left: 2px solid var(--gold-mid);
+        }
+
+        /* ================================================
+           PASSOS DO MÉTODO
         ================================================ */
         .timeline {
             display: flex;
@@ -371,7 +405,7 @@
             margin-bottom: 3px;
         }
 
-        .timeline-content p { font-size: 13px; color: var(--brown-light); }
+        .timeline-content p { font-size: 13px; color: var(--brown-light); line-height: 1.55; }
 
         /* ================================================
            DEPOIMENTOS
@@ -429,7 +463,7 @@
         }
 
         /* ================================================
-           OFERTA / PREÇO
+           OFERTA / PREÇO / RECAPITULAÇÃO
         ================================================ */
         .offer {
             padding: 60px 24px;
@@ -441,7 +475,7 @@
             border: 1px solid rgba(168,112,32,.18);
             border-radius: 10px;
             padding: 44px 32px 40px;
-            max-width: 400px;
+            max-width: 420px;
             margin: 0 auto;
             box-shadow: 0 8px 52px rgba(58,32,16,.08);
         }
@@ -468,6 +502,30 @@
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(168,112,32,.25), transparent);
             margin: 0 auto 24px;
+        }
+
+        .recap-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .recap-list li {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 13.5px;
+            color: var(--brown-mid);
+        }
+
+        .recap-list li strong {
+            color: var(--gold-dark);
+            font-weight: 700;
+            white-space: nowrap;
         }
 
         .price-old {
@@ -517,48 +575,6 @@
             color: var(--brown-light);
             letter-spacing: .03em;
         }
-
-        /* ================================================
-           CONTADOR REGRESSIVO
-        ================================================ */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 30px 0 8px;
-        }
-
-        .countdown-box {
-            background: rgba(200,144,48,.1);
-            border: 1px solid rgba(200,144,48,.3);
-            border-radius: 8px;
-            padding: 12px 14px;
-            min-width: 58px;
-            text-align: center;
-        }
-
-        .countdown-box strong {
-            display: block;
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 25px;
-            color: var(--gold-light);
-            line-height: 1;
-        }
-
-        .countdown-box span {
-            font-size: 9.5px;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: rgba(232,227,220,.55);
-            margin-top: 4px;
-            display: block;
-        }
-
-        /* ================================================
-           GARANTIA
-        ================================================ */
-        .guarantee-icon { font-size: 38px; margin-bottom: 18px; }
 
         /* ================================================
            CTA FINAL
@@ -681,25 +697,21 @@
          HERO
     =============================== -->
     <section class="hero">
-        <div class="hero-badge">Desafio Look Pronto · 7 dias</div>
-
         <h1 class="hero-headline">
-            10 peças. 40 looks. <em>7 dias</em> para nunca mais ficar perdida na frente do guarda-roupa.
+            Desafio de 7 Dias para Criar <em>40 Looks</em> com Apenas 10 Peças
         </h1>
 
-        <p class="hero-sub">
-            O método que vai destravar sua imagem, multiplicar seus looks e fazer você sair de casa todos os dias se sentindo segura, estilosa e completamente você mesma.
-        </p>
-
-        <div class="img-frame on-dark">
-            <img src="fotos/foto1.png" alt="Mulher com look impecável e postura confiante, sorrindo">
-        </div>
-
-        <p class="hero-price-hint" id="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id="preco-hero">47</span></p>
+        <ul class="simple-list on-dark">
+            <li><span class="ico">✔</span> Sem comprar roupas novas</li>
+            <li><span class="ico">✔</span> Sem precisar entender de moda</li>
+            <li><span class="ico">✔</span> Sem gastar horas escolhendo o que vestir</li>
+            <li><span class="ico">✔</span> Com um passo a passo simples para copiar e aplicar</li>
+        </ul>
 
         <br>
 
-        <a href="#" class="btn btn-block" id="cta-hero">Quero entrar no desafio</a>
+        <a href="#" class="btn btn-block" id="cta-hero">Quero entrar no Desafio Look Pronto</a>
+        <p class="hero-price-hint">Apenas R$ 47,00</p>
     </section>
 
     <!-- ==============================
@@ -708,161 +720,11 @@
     <div class="ornament"><span>✦</span></div>
 
     <!-- ==============================
-         VOCÊ SE IDENTIFICA?
-    =============================== -->
-    <section class="section first">
-        <p class="section-label">Isso já aconteceu com você?</p>
-        <h2 class="section-title">Você se identifica com alguma dessas situações?</h2>
-
-        <div class="img-frame narrow">
-            <img src="fotos/foto2.png" alt="Mulher de costas olhando para o guarda-roupa cheio de roupas, sem saber o que vestir">
-        </div>
-
-        <ul class="simple-list">
-            <li><span class="ico">❌</span> Abre o guarda-roupa todo dia e trava sem saber o que vestir</li>
-            <li><span class="ico">❌</span> Tem roupas mas sente que não tem nada pra colocar</li>
-            <li><span class="ico">❌</span> Perde tempo demais se arrumando e ainda sai insatisfeita</li>
-            <li><span class="ico">❌</span> Compra peças novas mas elas nunca combinam com nada</li>
-            <li><span class="ico">❌</span> Sente que suas roupas não refletem quem você realmente é</li>
-            <li><span class="ico">❌</span> Chega em compromissos importantes sem se sentir bem posicionada</li>
-        </ul>
-
-        <p class="closing-note">
-            Se você marcou pelo menos um desses pontos, saiba que isso não é falta de estilo. É falta de um método. E é exatamente isso que o <strong>Desafio Look Pronto</strong> resolve.
-        </p>
-    </section>
-
-    <!-- ==============================
-         A SOLUÇÃO JÁ ESTÁ NO GUARDA-ROUPA
+         ANTES E DEPOIS / PROVAS
     =============================== -->
     <section class="section alt">
-        <p class="section-label">A virada de chave</p>
-        <h2 class="section-title">E se a solução já estivesse dentro do seu <em style="font-style:italic;">guarda-roupa</em>?</h2>
-
-        <p class="section-body">
-            A maioria das mulheres não precisa de mais roupas. Precisa aprender a usar o que já tem com intenção, clareza e método.
-        </p>
-        <p class="section-body">
-            Com apenas <strong>10 peças estratégicas</strong> é possível criar <strong>40 looks completamente diferentes</strong>. Para o trabalho, o dia a dia, os encontros e os momentos que importam.
-        </p>
-        <p class="section-body">
-            Isso não é mágica. É o <strong>Desafio Look Pronto.</strong>
-        </p>
-
-        <div class="img-frame wide">
-            <img src="fotos/foto3.png" alt="Flatlay de peças de roupa organizadas formando uma base de guarda-roupa estratégica">
-        </div>
-    </section>
-
-    <!-- ==============================
-         APRESENTANDO O DESAFIO
-    =============================== -->
-    <section class="section-dark">
-        <p class="section-label">O programa</p>
-        <h2 class="section-title">Apresentando o <em style="font-style:italic;">Desafio Look Pronto</em></h2>
-        <p class="section-body" style="margin-bottom:18px; font-style:italic;">
-            7 dias para destravar sua imagem e transformar sua relação com o guarda-roupa de vez.
-        </p>
-
-        <p class="section-body">
-            O Desafio Look Pronto é um programa intensivo de 7 dias onde você vai aprender, na prática, como construir uma base de looks que funciona de verdade, com clareza, estilo e muita confiança.
-        </p>
-        <p class="section-body">
-            Cada dia tem um tema, uma entrega e uma transformação real. No sétimo dia você vai ter em mãos um guarda-roupa que trabalha por você.
-        </p>
-
-        <div class="img-frame on-dark">
-            <img src="fotos/foto4.png" alt="Luana Laitart apresentando o Desafio Look Pronto com um tablet em mãos">
-        </div>
-    </section>
-
-    <!-- ==============================
-         O QUE ACONTECE EM CADA DIA
-    =============================== -->
-    <section class="section">
-        <p class="section-label">Estrutura do desafio</p>
-        <h2 class="section-title">O que acontece em cada dia:</h2>
-
-        <ol class="timeline">
-            <li class="timeline-item">
-                <div class="timeline-day">1</div>
-                <div class="timeline-content">
-                    <strong>Diagnóstico do guarda-roupa</strong>
-                    <p>Clareza do que você tem e o que realmente usar</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">2</div>
-                <div class="timeline-content">
-                    <strong>As 10 peças-base</strong>
-                    <p>Identificar e selecionar sua base estratégica</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">3</div>
-                <div class="timeline-content">
-                    <strong>Entendendo os estilos</strong>
-                    <p>Reconhecer o estilo de cada peça e o seu</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">4</div>
-                <div class="timeline-content">
-                    <strong>A lógica da multiplicação</strong>
-                    <p>Como combinar peças para gerar mais looks</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">5</div>
-                <div class="timeline-content">
-                    <strong>Montando os 40 looks</strong>
-                    <p>Construção prática dos looks na sua realidade</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">6</div>
-                <div class="timeline-content">
-                    <strong>Imagem e posicionamento</strong>
-                    <p>Como seus looks comunicam quem você é</p>
-                </div>
-            </li>
-            <li class="timeline-item">
-                <div class="timeline-day">7</div>
-                <div class="timeline-content">
-                    <strong>Look Pronto para sempre</strong>
-                    <p>Método consolidado + guarda-roupa funcionando</p>
-                </div>
-            </li>
-        </ol>
-    </section>
-
-    <!-- ==============================
-         FEITO PRA VOCÊ SE...
-    =============================== -->
-    <section class="section-dark">
-        <p class="section-label">Esse desafio foi feito pra você</p>
-        <h2 class="section-title">Você reconhece pelo menos um desses pontos?</h2>
-
-        <ul class="simple-list on-dark">
-            <li><span class="ico">✅</span> Você sente que não aproveita metade do que tem no guarda-roupa</li>
-            <li><span class="ico">✅</span> Perde tempo toda manhã decidindo o que vestir</li>
-            <li><span class="ico">✅</span> Quer se sentir mais segura e bem posicionada na sua imagem</li>
-            <li><span class="ico">✅</span> Sente que suas roupas não refletem quem você é</li>
-            <li><span class="ico">✅</span> Quer praticidade sem abrir mão do estilo</li>
-            <li><span class="ico">✅</span> Está cansada de comprar peças que não combinam com nada</li>
-        </ul>
-
-        <div class="img-frame on-dark wide">
-            <img src="fotos/foto5.png" alt="Luana Laitart falando ao microfone em evento sobre imagem e estilo">
-        </div>
-    </section>
-
-    <!-- ==============================
-         DEPOIMENTOS
-    =============================== -->
-    <section class="section alt">
-        <p class="section-label">Resultados reais</p>
-        <h2 class="section-title">O que dizem as mulheres que já viveram essa transformação:</h2>
+        <p class="section-label">Provas reais</p>
+        <h2 class="section-title">Veja o antes e depois das mulheres que aplicaram o Método Look Pronto</h2>
 
         <div class="testimonials-grid">
             <div class="testimonial-card">
@@ -895,75 +757,231 @@
     </section>
 
     <!-- ==============================
-         QUEM VAI TE GUIAR
-    =============================== -->
-    <section class="section-dark">
-        <p class="section-label">Sua mentora</p>
-        <h2 class="section-title">Quem vai te guiar nesses 7 dias</h2>
-
-        <div class="img-frame on-dark narrow">
-            <img src="fotos/foto10.png" alt="Luana Laitart, consultora de imagem e estilo">
-        </div>
-
-        <p class="section-body" style="margin-top:32px;">
-            Sou Luana Laitart, consultora de imagem e estilo, e há 5 anos oriento mulheres a construírem uma relação de clareza, confiança e intenção com o próprio guarda-roupa.
-        </p>
-        <p class="section-body">
-            Já acompanhei dezenas de mulheres que chegaram até mim se sentindo perdidas na frente do espelho e hoje se vestem com segurança, propósito e muito mais leveza.
-        </p>
-        <p class="section-body">
-            O Desafio Look Pronto é o caminho mais direto e prático que eu conheço para essa transformação acontecer, e acontecer rápido.
-        </p>
-    </section>
-
-    <!-- ==============================
-         TUDO QUE VOCÊ RECEBE
+         VOCÊ SE RECONHECE NESSAS FRASES?
     =============================== -->
     <section class="section">
-        <p class="section-label">O que está incluso</p>
-        <h2 class="section-title">Tudo que você recebe no Desafio Look Pronto:</h2>
+        <p class="section-label">Isso é com você?</p>
+        <h2 class="section-title">Você se reconhece nessas frases?</h2>
 
-        <ul class="simple-list">
-            <li><span class="ico">💛</span> 7 dias de entrega e conteúdo em formato variado</li>
-            <li><span class="ico">💛</span> Método das 10 peças para 40 looks</li>
-            <li><span class="ico">💛</span> Guia de estilos e combinações</li>
-            <li><span class="ico">💛</span> Suporte diário durante o desafio</li>
-            <li><span class="ico">💛</span> Comunidade de mulheres em transformação</li>
-            <li><span class="ico">💛</span> Bônus: aula ao vivo</li>
+        <div class="img-frame narrow">
+            <img src="fotos/foto2.png" alt="Mulher de costas olhando para o guarda-roupa cheio de roupas, sem saber o que vestir">
+        </div>
+
+        <ul class="quote-list">
+            <li>"Meu guarda-roupa está cheio, mas eu nunca tenho roupa."</li>
+            <li>"Perco muito tempo escolhendo o que vestir."</li>
+            <li>"Compro roupas novas e continuo insatisfeita."</li>
+            <li>"Parece que nada combina comigo."</li>
+            <li>"Tenho medo de estar mal vestida."</li>
+            <li>"Não me sinto bonita quando me olho no espelho."</li>
         </ul>
     </section>
 
     <!-- ==============================
-         OFERTA / PREÇO
+         É FRUSTRANTE VIVER ASSIM
     =============================== -->
-    <section class="offer" style="background-color:var(--beige-card);">
-        <p class="section-label" style="margin-bottom:0;">Sua transformação começa agora</p>
+    <section class="section-dark">
+        <p class="section-label">A real situação</p>
+        <h2 class="section-title">É frustrante viver assim, não é?</h2>
+
+        <p class="section-body">
+            Você abre o guarda-roupa todos os dias.<br>
+            Experimenta uma roupa.<br>
+            Depois outra.<br>
+            E mais outra.<br>
+            E mesmo assim sai de casa insegura.
+        </p>
+        <p class="section-body">
+            Tenho certeza de que você não quer continuar vivendo dessa forma.
+        </p>
+    </section>
+
+    <!-- ==============================
+         ENTENDA DE UMA VEZ POR TODAS
+    =============================== -->
+    <section class="section alt">
+        <p class="section-label">A verdade</p>
+        <h2 class="section-title">Entenda de uma vez por todas</h2>
+
+        <p class="section-body">
+            Isso não acontece porque você não tem estilo.<br>
+            Também não acontece porque você precisa comprar mais roupas.
+        </p>
+        <p class="section-body">
+            Acontece porque ninguém te ensinou como montar um guarda-roupa estratégico.
+        </p>
+        <p class="section-body">
+            Você possui peças.<br>
+            Mas não possui um sistema.<br>
+            Por isso precisa do <strong>Desafio Look Pronto</strong>.
+        </p>
+
+        <div class="img-frame wide">
+            <img src="fotos/foto3.png" alt="Flatlay de peças de roupa organizadas formando uma base de guarda-roupa estratégica">
+        </div>
+    </section>
+
+    <!-- ==============================
+         OS 3 PASSOS DO MÉTODO
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">O método</p>
+        <h2 class="section-title">Os 3 passos do Método Look Pronto</h2>
+
+        <ol class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-day">1</div>
+                <div class="timeline-content">
+                    <strong>Identifique as 10 peças-chave</strong>
+                    <p>Você descobrirá quais peças já possui e que podem se tornar a base de dezenas de combinações. Sem compras desnecessárias. Sem desperdício.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">2</div>
+                <div class="timeline-content">
+                    <strong>Copie e aplique a lógica dos 40 looks</strong>
+                    <p>Você receberá uma metodologia prática para combinar suas peças de forma inteligente. Sem precisar entender de moda. Sem complicação.</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-day">3</div>
+                <div class="timeline-content">
+                    <strong>Posicione sua imagem com confiança</strong>
+                    <p>Aprenda a usar suas roupas para comunicar segurança, elegância e autenticidade. Porque imagem não é vaidade. É comunicação.</p>
+                </div>
+            </li>
+        </ol>
+
+        <div class="img-frame on-dark">
+            <img src="fotos/foto4.png" alt="Luana Laitart apresentando o Método Look Pronto com um tablet em mãos">
+        </div>
+    </section>
+
+    <!-- ==============================
+         TUDO O QUE VOCÊ VAI RECEBER
+    =============================== -->
+    <section class="section">
+        <p class="section-label">O que está incluso</p>
+        <h2 class="section-title">Veja tudo o que você vai receber</h2>
+
+        <ul class="simple-list">
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Método das 10 Peças</span>
+                    <p class="feature-desc">Descubra como criar uma base estratégica para multiplicar seus looks.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Guia dos 40 Looks Prontos</span>
+                    <p class="feature-desc">Um mapa visual para você simplesmente copiar e aplicar.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Diagnóstico do Guarda-Roupa</span>
+                    <p class="feature-desc">Identifique o que valoriza você e o que está apenas ocupando espaço.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Aula de Posicionamento e Imagem</span>
+                    <p class="feature-desc">Aprenda a transmitir mais confiança através da sua aparência.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Checklist Anti-Compras Impulsivas</span>
+                    <p class="feature-desc">Nunca mais desperdice dinheiro comprando peças que não combinam com nada.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Guia de Combinações Inteligentes</span>
+                    <p class="feature-desc">Entenda exatamente como multiplicar seus looks.</p>
+                </div>
+            </li>
+            <li>
+                <span class="ico">💛</span>
+                <div>
+                    <span class="feature-title">Aula Extra: Como se Vestir com Segurança Todos os Dias</span>
+                    <p class="feature-desc">Mesmo que você não se considere uma mulher estilosa.</p>
+                </div>
+            </li>
+        </ul>
 
         <div class="img-frame wide">
             <img src="fotos/foto11.png" alt="Guia completo do Desafio Look Pronto em formato impresso e digital">
         </div>
+    </section>
+
+    <!-- ==============================
+         PARA QUEM É O DESAFIO
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">Esse desafio foi feito pra você</p>
+        <h2 class="section-title">O Desafio Look Pronto é para você que...</h2>
+
+        <ul class="simple-list on-dark">
+            <li><span class="ico">✅</span> Tem um guarda-roupa cheio e sente que não tem roupa.</li>
+            <li><span class="ico">✅</span> Perde tempo escolhendo o que vestir.</li>
+            <li><span class="ico">✅</span> Quer se sentir mais bonita e confiante.</li>
+            <li><span class="ico">✅</span> Deseja praticidade sem abrir mão da elegância.</li>
+            <li><span class="ico">✅</span> Está cansada de gastar dinheiro sem resultado.</li>
+            <li><span class="ico">✅</span> Quer receber elogios sem precisar comprar roupas novas.</li>
+        </ul>
+
+        <p class="closing-note on-dark">
+            Se você se identificou com <strong>dois ou mais</strong> desses pontos, esse desafio foi feito para você.
+        </p>
+
+        <div class="img-frame on-dark wide">
+            <img src="fotos/foto5.png" alt="Luana Laitart falando ao microfone em evento sobre imagem e estilo">
+        </div>
+    </section>
+
+    <!-- ==============================
+         RECAPITULANDO / OFERTA
+    =============================== -->
+    <section class="offer" style="background-color:var(--beige-card);">
+        <p class="section-label" style="margin-bottom:0;">Sua transformação começa agora</p>
 
         <div class="offer-card" style="margin-top:36px;">
-            <p class="offer-product-label">Oferta especial</p>
+            <p class="offer-product-label">Recapitulando</p>
 
-            <h3 class="offer-name">
-                Desafio Look Pronto<br>
-                <em style="font-style:italic; font-size:.82em; color:var(--brown-light); font-weight:400;">10 peças, 40 looks, 7 dias</em>
-            </h3>
+            <h3 class="offer-name">Tudo o que você vai receber</h3>
 
             <div class="offer-hr"></div>
 
-            <p class="price-old">De <s>R$ 197</s> por apenas</p>
-            <p class="price-window" id="price-window">Nas primeiras 24h</p>
+            <ul class="recap-list">
+                <li><span>✅ Método das 10 Peças</span><strong>R$ 97</strong></li>
+                <li><span>✅ Guia dos 40 Looks</span><strong>R$ 97</strong></li>
+                <li><span>✅ Diagnóstico do Guarda-Roupa</span><strong>R$ 67</strong></li>
+                <li><span>✅ Aula de Posicionamento e Imagem</span><strong>R$ 97</strong></li>
+                <li><span>✅ Checklist Anti-Compras Impulsivas</span><strong>R$ 47</strong></li>
+                <li><span>✅ Guia de Combinações Inteligentes</span><strong>R$ 67</strong></li>
+                <li><span>✅ Aula Extra de Segurança e Confiança</span><strong>R$ 97</strong></li>
+            </ul>
+
+            <div class="offer-hr"></div>
+
+            <p class="price-old">Valor total <s>R$ 569</s></p>
+            <p class="price-window">Mas hoje você terá acesso a tudo por apenas</p>
 
             <div class="offer-price">
                 <span class="currency">R$</span>
-                <span id="preco-offer">47</span>
+                <span>47</span>
             </div>
 
             <p class="price-after">Pagamento único</p>
 
-            <a href="#" class="btn btn-block" id="cta-offer">Garantir minha vaga agora</a>
+            <a href="#" class="btn btn-block" id="cta-offer">Quero entrar no Desafio Look Pronto</a>
 
             <p class="offer-secure">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -975,41 +993,27 @@
     </section>
 
     <!-- ==============================
-         VAGAS LIMITADAS + CONTADOR
-    =============================== -->
-    <section class="section-dark">
-        <p class="section-label">Atenção</p>
-        <h2 class="section-title">Vagas limitadas</h2>
-
-        <p class="section-body">
-            O desafio começa no dia <strong style="color:var(--gold-light);">06 de julho</strong> e as inscrições fecham no dia <strong style="color:var(--gold-light);">05 de julho</strong> ou quando as vagas acabarem.
-        </p>
-        <p class="section-body">
-            Se você está lendo isso agora, ainda dá tempo. Mas não espere muito.
-        </p>
-
-        <!-- Contador regressivo: 1ª fase conta até FIM_JANELA_24H (fim do preço de R$ 47), 2ª fase conta até DATA_LIMITE_INSCRICOES -->
-        <p class="price-window" id="countdown-label" style="color:rgba(200,144,48,.85); margin-bottom:0;">Termina em</p>
-        <div class="countdown" id="countdown">
-            <div class="countdown-box"><strong id="cd-dias">00</strong><span>dias</span></div>
-            <div class="countdown-box"><strong id="cd-horas">00</strong><span>horas</span></div>
-            <div class="countdown-box"><strong id="cd-min">00</strong><span>min</span></div>
-            <div class="countdown-box"><strong id="cd-seg">00</strong><span>seg</span></div>
-        </div>
-    </section>
-
-    <!-- ==============================
-         GARANTIA
+         ME RESPONDA SOMENTE A VERDADE
     =============================== -->
     <section class="section">
-        <p class="section-label">Risco zero</p>
-        <h2 class="section-title">Sua transformação é garantida</h2>
+        <p class="section-label">Uma pergunta sincera</p>
+        <h2 class="section-title">Me responda somente a verdade</h2>
 
         <p class="section-body">
-            Se em 7 dias você aplicar o método e não sentir diferença nenhuma na sua relação com o guarda-roupa, eu devolvo o seu investimento. Sem burocracia, sem perguntas.
+            Quantas vezes nesta semana você abriu o guarda-roupa e pensou:<br>
+            <em style="font-style:italic;">"Eu não tenho nada para vestir"?</em>
         </p>
         <p class="section-body">
-            Porque eu sei o que esse desafio é capaz de fazer e quero que você entre com total segurança.
+            Provavelmente várias.<br>
+            E o pior: você continua acreditando que o problema é falta de roupa.
+        </p>
+        <p class="section-body">
+            Mas não é.<br>
+            <strong>O problema é falta de método.</strong>
+        </p>
+        <p class="section-body">
+            Quando você aprende a usar as peças certas da forma certa, seu guarda-roupa inteiro muda.<br>
+            Sem gastar mais. Sem comprar mais. Sem complicação.
         </p>
     </section>
 
@@ -1017,21 +1021,26 @@
          CTA FINAL
     =============================== -->
     <section class="final-cta">
-        <p class="section-label">Não deixe para depois</p>
+        <p class="section-label">Sua transformação começa agora</p>
 
         <h2 class="section-title">
-            Você merece sair de casa todos os dias se sentindo segura, estilosa e<br>
-            <em style="font-style:italic;">completamente você mesma.</em>
+            Imagine acordar amanhã e saber exatamente o que vestir.
         </h2>
 
+        <p class="section-body">
+            Imagine abrir seu guarda-roupa e ter dezenas de combinações prontas.<br>
+            Imagine receber elogios. Sentir-se bonita. Confiante. Elegante. Todos os dias.<br><br>
+            Tudo começa com uma decisão.
+        </p>
+
         <div class="price-badge">
-            <small id="preco-badge-label">Primeiras 24h</small>
-            <strong>R$ <span id="preco-badge">47</span>,00</strong>
+            <small>Apenas</small>
+            <strong>R$ 47,00</strong>
         </div>
 
         <br>
 
-        <a href="#" class="btn btn-block" id="cta-final">Sim, quero entrar no Desafio Look Pronto</a>
+        <a href="#" class="btn btn-block" id="cta-final">Quero entrar no Desafio Look Pronto</a>
 
         <p class="final-hint">Acesso imediato &nbsp;·&nbsp; Pagamento único e seguro</p>
     </section>
@@ -1047,7 +1056,7 @@
          BOTÃO FIXO (mobile)
     =============================== -->
     <div class="sticky-bar" id="sticky-bar">
-        <a href="#" class="btn" id="cta-sticky">Entrar no desafio &nbsp;·&nbsp; R$ <span id="preco-sticky">47</span></a>
+        <a href="#" class="btn" id="cta-sticky">Entrar no desafio &nbsp;·&nbsp; R$ 47</a>
     </div>
 
     <!-- ==============================
@@ -1055,63 +1064,19 @@
     =============================== -->
     <script>
         /* ==========================================================
-           LINKS DA HOTMART
-           Primeiras 24h (a partir de INICIO_OFERTA): link cheio (R$ 47).
-           Depois de 24h: link com o cupom de desconto (off=we4i2r8x).
+           LINK DA HOTMART — oferta única de R$ 47, pagamento único.
         ========================================================== */
-        const LINK_HOTMART_24H   = "https://pay.hotmart.com/K106370442G";
-        const LINK_HOTMART_APOS  = "https://pay.hotmart.com/K106370442G?off=we4i2r8x";
-
-        const INICIO_OFERTA      = new Date("2026-06-22T00:00:00-03:00"); // dia 22: preço de R$ 47
-        const FIM_JANELA_24H     = new Date(INICIO_OFERTA.getTime() + 24 * 60 * 60 * 1000); // dia 23: preço de R$ 67
-
-        function linkCarrinhoAtual() {
-            return new Date() < FIM_JANELA_24H ? LINK_HOTMART_24H : LINK_HOTMART_APOS;
-        }
+        const LINK_HOTMART = "https://pay.hotmart.com/K106370442G";
 
         function irParaCarrinho(e) {
             e.preventDefault();
-            window.open(linkCarrinhoAtual(), "_blank", "noopener,noreferrer");
+            window.open(LINK_HOTMART, "_blank", "noopener,noreferrer");
         }
 
         ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener("click", irParaCarrinho);
         });
-
-        /* ==========================================================
-           PREÇO DINÂMICO
-           Troca os valores exibidos de R$ 47 para R$ 67 automaticamente
-           quando a janela das 24h termina.
-        ========================================================== */
-        const PRECO_24H  = 47;
-        const PRECO_APOS = 67;
-
-        function atualizarPrecos() {
-            var dentroDaJanela = new Date() < FIM_JANELA_24H;
-            var preco = dentroDaJanela ? PRECO_24H : PRECO_APOS;
-
-            ["preco-hero", "preco-offer", "preco-badge", "preco-sticky"].forEach(function(id) {
-                var el = document.getElementById(id);
-                if (el) el.textContent = preco;
-            });
-
-            var label = document.getElementById("preco-badge-label");
-            if (label) label.textContent = dentroDaJanela ? "Primeiras 24h" : "Oferta atual";
-
-            var heroHint = document.getElementById("hero-price-hint");
-            if (heroHint) {
-                heroHint.innerHTML = dentroDaJanela
-                    ? "Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id=\"preco-hero\">" + preco + "</span>"
-                    : "Acesso imediato &nbsp;·&nbsp; Oferta atual por R$ <span id=\"preco-hero\">" + preco + "</span>";
-            }
-
-            var priceWindow = document.getElementById("price-window");
-            if (priceWindow) priceWindow.textContent = dentroDaJanela ? "Nas primeiras 24h" : "Oferta por tempo limitado";
-        }
-
-        atualizarPrecos();
-        setInterval(atualizarPrecos, 1000);
 
         var sticky = document.getElementById("sticky-bar");
         window.addEventListener("scroll", function() {
@@ -1120,40 +1085,6 @@
         }, { passive: true });
         sticky.style.opacity      = "0";
         sticky.style.transition   = "opacity .3s ease";
-
-        /* ==========================================================
-           CONTADOR REGRESSIVO
-           1ª fase: conta até FIM_JANELA_24H (fim do preço de R$ 47).
-           2ª fase: depois disso, passa a contar até DATA_LIMITE_INSCRICOES.
-        ========================================================== */
-        const DATA_LIMITE_INSCRICOES = new Date("2026-07-05T23:59:59-03:00");
-
-        function atualizarContador() {
-            var agora = new Date();
-            var dentroDaJanela = agora < FIM_JANELA_24H;
-            var alvo  = dentroDaJanela ? FIM_JANELA_24H : DATA_LIMITE_INSCRICOES;
-            var restante = alvo - agora;
-
-            var label = document.getElementById("countdown-label");
-            if (label) label.textContent = dentroDaJanela ? "Preço de R$ 47 termina em" : "Inscrições terminam em";
-
-            if (restante < 0) restante = 0;
-
-            var dias  = Math.floor(restante / (1000 * 60 * 60 * 24));
-            var horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
-            var min   = Math.floor((restante / (1000 * 60)) % 60);
-            var seg   = Math.floor((restante / 1000) % 60);
-
-            var pad = function(n) { return String(n).padStart(2, "0"); };
-
-            document.getElementById("cd-dias").textContent  = pad(dias);
-            document.getElementById("cd-horas").textContent = pad(horas);
-            document.getElementById("cd-min").textContent   = pad(min);
-            document.getElementById("cd-seg").textContent   = pad(seg);
-        }
-
-        atualizarContador();
-        setInterval(atualizarContador, 1000);
     </script>
 
 </body>
