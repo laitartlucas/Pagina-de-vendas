@@ -1045,13 +1045,16 @@
         <h2 class="section-title">Vagas limitadas</h2>
 
         <p class="section-body">
-            O valor de R$ 47 é válido apenas nas primeiras 24 horas desta oferta. Depois disso, o investimento aumenta e as inscrições ficam abertas até o dia <strong style="color:var(--gold-light);">05 de julho</strong>, quando esse desafio sai do ar.
+            As vendas abrem amanhã. Nas primeiras 24 horas, o valor de entrada é de R$ 47.
         </p>
         <p class="section-body">
-            Se você está lendo isso agora, ainda dá tempo. Mas não espere muito.
+            Depois desse período, o investimento aumenta e as inscrições ficam abertas até o dia <strong style="color:var(--gold-light);">05 de julho</strong>, quando esse desafio sai do ar.
+        </p>
+        <p class="section-body">
+            Se você está lendo isso agora, ainda dá tempo de garantir o valor mais baixo. Mas não espere muito.
         </p>
 
-        <p class="price-window" id="countdown-label" style="color:rgba(200,144,48,.85); margin-bottom:0;">Preço de R$ 47 termina em</p>
+        <p class="price-window" id="countdown-label" style="color:rgba(200,144,48,.85); margin-bottom:0;">As vendas abrem em</p>
         <div class="countdown" id="countdown">
             <div class="countdown-box"><strong id="cd-dias">00</strong><span>dias</span></div>
             <div class="countdown-box"><strong id="cd-horas">00</strong><span>horas</span></div>
@@ -1132,10 +1135,14 @@
     =============================== -->
     <script>
         /* ==========================================================
-           JANELAS DE PREÇO
-           Segunda-feira (INICIO_OFERTA): primeiras 24h por R$ 47.
-           A partir de terça (FIM_JANELA_24H): R$ 67 até 05/07.
-           Depois de DATA_LIMITE_INSCRICOES: vendas encerradas.
+           FASES DA OFERTA
+           "bloqueado"  — agora até a abertura de amanhã (INICIO_OFERTA):
+                          página divulgada, mas a compra fica travada.
+           "24h"        — abertura de amanhã até o dia seguinte (FIM_JANELA_24H):
+                          primeiras 24h liberadas, valor de entrada R$ 47.
+           "apos24h"    — daí até DATA_LIMITE_INSCRICOES (05/07): valor sobe,
+                          inscrições continuam abertas.
+           "encerrado"  — depois de 05/07: vendas fechadas em definitivo.
         ========================================================== */
         const INICIO_OFERTA          = new Date("2026-06-22T00:00:00-03:00");
         const FIM_JANELA_24H         = new Date(INICIO_OFERTA.getTime() + 24 * 60 * 60 * 1000);
@@ -1147,8 +1154,11 @@
         const PRECO_24H  = 47;
         const PRECO_APOS = 67;
 
+        const TEXTO_CTA_PADRAO = "Quero entrar no Desafio Look Pronto";
+
         function faseAtual() {
             var agora = new Date();
+            if (agora < INICIO_OFERTA) return "bloqueado";
             if (agora < FIM_JANELA_24H) return "24h";
             if (agora < DATA_LIMITE_INSCRICOES) return "apos24h";
             return "encerrado";
@@ -1160,7 +1170,8 @@
 
         function irParaCarrinho(e) {
             e.preventDefault();
-            if (faseAtual() === "encerrado") return;
+            var fase = faseAtual();
+            if (fase === "bloqueado" || fase === "encerrado") return;
             window.open(linkCarrinhoAtual(), "_blank", "noopener,noreferrer");
         }
 
@@ -1170,48 +1181,74 @@
         });
 
         /* ==========================================================
-           PREÇO DINÂMICO + ENCERRAMENTO DAS VENDAS
+           PREÇO DINÂMICO + BLOQUEIO / ENCERRAMENTO DAS VENDAS
         ========================================================== */
         function atualizarPrecos() {
             var fase  = faseAtual();
-            var preco = fase === "24h" ? PRECO_24H : PRECO_APOS;
+            var preco = (fase === "apos24h" || fase === "encerrado") ? PRECO_APOS : PRECO_24H;
 
-            ["preco-hero", "preco-offer", "preco-badge", "preco-sticky"].forEach(function(id) {
+            ["preco-hero", "preco-offer", "preco-badge"].forEach(function(id) {
                 var el = document.getElementById(id);
                 if (el) el.textContent = preco;
             });
 
             var badgeLabel = document.getElementById("preco-badge-label");
             if (badgeLabel) {
-                badgeLabel.textContent = fase === "24h" ? "Primeiras 24h" : fase === "apos24h" ? "Oferta atual" : "Vendas encerradas";
+                badgeLabel.textContent = fase === "bloqueado" ? "Abre amanhã"
+                    : fase === "24h" ? "Primeiras 24h"
+                    : fase === "apos24h" ? "Oferta atual"
+                    : "Vendas encerradas";
             }
 
             var heroHint = document.getElementById("hero-price-hint");
             if (heroHint) {
-                heroHint.innerHTML = fase === "24h"
-                    ? "Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id=\"preco-hero\">" + preco + "</span>"
-                    : fase === "apos24h"
-                        ? "Acesso imediato &nbsp;·&nbsp; Oferta atual por R$ <span id=\"preco-hero\">" + preco + "</span>"
-                        : "Inscrições encerradas";
+                heroHint.innerHTML = fase === "bloqueado"
+                    ? "Abre amanhã &nbsp;·&nbsp; A partir de R$ <span id=\"preco-hero\">" + preco + "</span>"
+                    : fase === "24h"
+                        ? "Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id=\"preco-hero\">" + preco + "</span>"
+                        : fase === "apos24h"
+                            ? "Acesso imediato &nbsp;·&nbsp; Oferta atual por R$ <span id=\"preco-hero\">" + preco + "</span>"
+                            : "Inscrições encerradas";
             }
 
             var priceWindow = document.getElementById("price-window");
             if (priceWindow) {
-                priceWindow.textContent = fase === "24h"
-                    ? "Mas hoje você terá acesso a tudo por apenas:"
-                    : fase === "apos24h"
-                        ? "Por tempo limitado, você ainda tem acesso a tudo por apenas:"
-                        : "As vendas deste desafio estão encerradas.";
+                priceWindow.textContent = fase === "bloqueado"
+                    ? "As vendas abrem amanhã. Garanta seu acesso por apenas:"
+                    : fase === "24h"
+                        ? "Mas hoje você terá acesso a tudo por apenas:"
+                        : fase === "apos24h"
+                            ? "Por tempo limitado, você ainda tem acesso a tudo por apenas:"
+                            : "As vendas deste desafio estão encerradas.";
             }
 
-            if (fase === "encerrado") {
-                ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
-                    var btn = document.getElementById(id);
-                    if (btn) {
-                        btn.textContent = "Vendas encerradas";
-                        btn.classList.add("disabled");
-                    }
-                });
+            ["cta-hero", "cta-offer", "cta-final"].forEach(function(id) {
+                var btn = document.getElementById(id);
+                if (!btn) return;
+                if (fase === "bloqueado") {
+                    btn.textContent = "Libera amanhã";
+                    btn.classList.add("disabled");
+                } else if (fase === "encerrado") {
+                    btn.textContent = "Vendas encerradas";
+                    btn.classList.add("disabled");
+                } else {
+                    btn.textContent = TEXTO_CTA_PADRAO;
+                    btn.classList.remove("disabled");
+                }
+            });
+
+            var stickyBtn = document.getElementById("cta-sticky");
+            if (stickyBtn) {
+                if (fase === "bloqueado") {
+                    stickyBtn.textContent = "Libera amanhã";
+                    stickyBtn.classList.add("disabled");
+                } else if (fase === "encerrado") {
+                    stickyBtn.textContent = "Vendas encerradas";
+                    stickyBtn.classList.add("disabled");
+                } else {
+                    stickyBtn.innerHTML = "Entrar no desafio &nbsp;·&nbsp; R$ <span id=\"preco-sticky\">" + preco + "</span>";
+                    stickyBtn.classList.remove("disabled");
+                }
             }
         }
 
@@ -1228,18 +1265,24 @@
 
         /* ==========================================================
            CONTADOR REGRESSIVO
-           1ª fase: conta até FIM_JANELA_24H (fim do preço de R$ 47).
-           2ª fase: conta até DATA_LIMITE_INSCRICOES (fim das vendas).
+           "bloqueado" — conta até INICIO_OFERTA (abertura das vendas).
+           "24h"       — conta até FIM_JANELA_24H (fim do preço de entrada).
+           "apos24h"   — conta até DATA_LIMITE_INSCRICOES (fim das vendas).
         ========================================================== */
         function atualizarContador() {
             var fase  = faseAtual();
             var agora = new Date();
-            var alvo  = fase === "24h" ? FIM_JANELA_24H : DATA_LIMITE_INSCRICOES;
+            var alvo  = fase === "bloqueado" ? INICIO_OFERTA
+                : fase === "24h" ? FIM_JANELA_24H
+                : DATA_LIMITE_INSCRICOES;
             var restante = alvo - agora;
 
             var label = document.getElementById("countdown-label");
             if (label) {
-                label.textContent = fase === "24h" ? "Preço de R$ 47 termina em" : fase === "apos24h" ? "Inscrições encerram em" : "Inscrições encerradas";
+                label.textContent = fase === "bloqueado" ? "As vendas abrem em"
+                    : fase === "24h" ? "Preço de lançamento termina em"
+                    : fase === "apos24h" ? "Inscrições encerram em"
+                    : "Inscrições encerradas";
             }
 
             if (restante < 0 || fase === "encerrado") restante = 0;
