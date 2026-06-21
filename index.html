@@ -577,6 +577,51 @@
         }
 
         /* ================================================
+           CONTADOR REGRESSIVO
+        ================================================ */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0 8px;
+        }
+
+        .countdown-box {
+            background: rgba(200,144,48,.1);
+            border: 1px solid rgba(200,144,48,.3);
+            border-radius: 8px;
+            padding: 12px 14px;
+            min-width: 58px;
+            text-align: center;
+        }
+
+        .countdown-box strong {
+            display: block;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 25px;
+            color: var(--gold-light);
+            line-height: 1;
+        }
+
+        .countdown-box span {
+            font-size: 9.5px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(232,227,220,.55);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* botão desabilitado quando as vendas encerram */
+        .btn.disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            pointer-events: none;
+            box-shadow: none;
+        }
+
+        /* ================================================
            CTA FINAL
         ================================================ */
         .final-cta {
@@ -702,16 +747,16 @@
         </h1>
 
         <ul class="simple-list on-dark">
-            <li><span class="ico">✔</span> Sem comprar roupas novas</li>
-            <li><span class="ico">✔</span> Sem precisar entender de moda</li>
-            <li><span class="ico">✔</span> Sem gastar horas escolhendo o que vestir</li>
-            <li><span class="ico">✔</span> Com um passo a passo simples para copiar e aplicar</li>
+            <li><span class="ico">✔</span> Sem comprar roupas novas.</li>
+            <li><span class="ico">✔</span> Sem precisar entender de moda.</li>
+            <li><span class="ico">✔</span> Sem gastar horas escolhendo o que vestir.</li>
+            <li><span class="ico">✔</span> Com um passo a passo simples para copiar e aplicar.</li>
         </ul>
 
         <br>
 
         <a href="#" class="btn btn-block" id="cta-hero">Quero entrar no Desafio Look Pronto</a>
-        <p class="hero-price-hint">Apenas R$ 47,00</p>
+        <p class="hero-price-hint" id="hero-price-hint">Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id="preco-hero">47</span></p>
     </section>
 
     <!-- ==============================
@@ -971,12 +1016,12 @@
 
             <div class="offer-hr"></div>
 
-            <p class="price-old">Valor total <s>R$ 569</s></p>
-            <p class="price-window">Mas hoje você terá acesso a tudo por apenas</p>
+            <p class="price-old">Valor total: <s>R$ 569</s></p>
+            <p class="price-window" id="price-window">Mas hoje você terá acesso a tudo por apenas:</p>
 
             <div class="offer-price">
                 <span class="currency">R$</span>
-                <span>47</span>
+                <span id="preco-offer">47</span>
             </div>
 
             <p class="price-after">Pagamento único</p>
@@ -993,6 +1038,29 @@
     </section>
 
     <!-- ==============================
+         VAGAS LIMITADAS + CONTADOR
+    =============================== -->
+    <section class="section-dark">
+        <p class="section-label">Atenção</p>
+        <h2 class="section-title">Vagas limitadas</h2>
+
+        <p class="section-body">
+            O valor de R$ 47 é válido apenas nas primeiras 24 horas desta oferta. Depois disso, o investimento aumenta e as inscrições ficam abertas até o dia <strong style="color:var(--gold-light);">05 de julho</strong>, quando esse desafio sai do ar.
+        </p>
+        <p class="section-body">
+            Se você está lendo isso agora, ainda dá tempo. Mas não espere muito.
+        </p>
+
+        <p class="price-window" id="countdown-label" style="color:rgba(200,144,48,.85); margin-bottom:0;">Preço de R$ 47 termina em</p>
+        <div class="countdown" id="countdown">
+            <div class="countdown-box"><strong id="cd-dias">00</strong><span>dias</span></div>
+            <div class="countdown-box"><strong id="cd-horas">00</strong><span>horas</span></div>
+            <div class="countdown-box"><strong id="cd-min">00</strong><span>min</span></div>
+            <div class="countdown-box"><strong id="cd-seg">00</strong><span>seg</span></div>
+        </div>
+    </section>
+
+    <!-- ==============================
          ME RESPONDA SOMENTE A VERDADE
     =============================== -->
     <section class="section">
@@ -1001,7 +1069,7 @@
 
         <p class="section-body">
             Quantas vezes nesta semana você abriu o guarda-roupa e pensou:<br>
-            <em style="font-style:italic;">"Eu não tenho nada para vestir"?</em>
+            <em style="font-style:italic;">"Eu não tenho nada para vestir?"</em>
         </p>
         <p class="section-body">
             Provavelmente várias.<br>
@@ -1034,8 +1102,8 @@
         </p>
 
         <div class="price-badge">
-            <small>Apenas</small>
-            <strong>R$ 47,00</strong>
+            <small id="preco-badge-label">Primeiras 24h</small>
+            <strong>R$ <span id="preco-badge">47</span>,00</strong>
         </div>
 
         <br>
@@ -1056,7 +1124,7 @@
          BOTÃO FIXO (mobile)
     =============================== -->
     <div class="sticky-bar" id="sticky-bar">
-        <a href="#" class="btn" id="cta-sticky">Entrar no desafio &nbsp;·&nbsp; R$ 47</a>
+        <a href="#" class="btn" id="cta-sticky">Entrar no desafio &nbsp;·&nbsp; R$ <span id="preco-sticky">47</span></a>
     </div>
 
     <!-- ==============================
@@ -1064,19 +1132,91 @@
     =============================== -->
     <script>
         /* ==========================================================
-           LINK DA HOTMART — oferta única de R$ 47, pagamento único.
+           JANELAS DE PREÇO
+           Segunda-feira (INICIO_OFERTA): primeiras 24h por R$ 47.
+           A partir de terça (FIM_JANELA_24H): R$ 67 até 05/07.
+           Depois de DATA_LIMITE_INSCRICOES: vendas encerradas.
         ========================================================== */
-        const LINK_HOTMART = "https://pay.hotmart.com/K106370442G";
+        const INICIO_OFERTA          = new Date("2026-06-22T00:00:00-03:00");
+        const FIM_JANELA_24H         = new Date(INICIO_OFERTA.getTime() + 24 * 60 * 60 * 1000);
+        const DATA_LIMITE_INSCRICOES = new Date("2026-07-05T23:59:59-03:00");
+
+        const LINK_HOTMART_24H  = "https://pay.hotmart.com/K106370442G";
+        const LINK_HOTMART_APOS = "https://pay.hotmart.com/K106370442G?off=we4i2r8x";
+
+        const PRECO_24H  = 47;
+        const PRECO_APOS = 67;
+
+        function faseAtual() {
+            var agora = new Date();
+            if (agora < FIM_JANELA_24H) return "24h";
+            if (agora < DATA_LIMITE_INSCRICOES) return "apos24h";
+            return "encerrado";
+        }
+
+        function linkCarrinhoAtual() {
+            return faseAtual() === "24h" ? LINK_HOTMART_24H : LINK_HOTMART_APOS;
+        }
 
         function irParaCarrinho(e) {
             e.preventDefault();
-            window.open(LINK_HOTMART, "_blank", "noopener,noreferrer");
+            if (faseAtual() === "encerrado") return;
+            window.open(linkCarrinhoAtual(), "_blank", "noopener,noreferrer");
         }
 
         ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.addEventListener("click", irParaCarrinho);
         });
+
+        /* ==========================================================
+           PREÇO DINÂMICO + ENCERRAMENTO DAS VENDAS
+        ========================================================== */
+        function atualizarPrecos() {
+            var fase  = faseAtual();
+            var preco = fase === "24h" ? PRECO_24H : PRECO_APOS;
+
+            ["preco-hero", "preco-offer", "preco-badge", "preco-sticky"].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = preco;
+            });
+
+            var badgeLabel = document.getElementById("preco-badge-label");
+            if (badgeLabel) {
+                badgeLabel.textContent = fase === "24h" ? "Primeiras 24h" : fase === "apos24h" ? "Oferta atual" : "Vendas encerradas";
+            }
+
+            var heroHint = document.getElementById("hero-price-hint");
+            if (heroHint) {
+                heroHint.innerHTML = fase === "24h"
+                    ? "Acesso imediato &nbsp;·&nbsp; Primeiras 24h por R$ <span id=\"preco-hero\">" + preco + "</span>"
+                    : fase === "apos24h"
+                        ? "Acesso imediato &nbsp;·&nbsp; Oferta atual por R$ <span id=\"preco-hero\">" + preco + "</span>"
+                        : "Inscrições encerradas";
+            }
+
+            var priceWindow = document.getElementById("price-window");
+            if (priceWindow) {
+                priceWindow.textContent = fase === "24h"
+                    ? "Mas hoje você terá acesso a tudo por apenas:"
+                    : fase === "apos24h"
+                        ? "Por tempo limitado, você ainda tem acesso a tudo por apenas:"
+                        : "As vendas deste desafio estão encerradas.";
+            }
+
+            if (fase === "encerrado") {
+                ["cta-hero", "cta-offer", "cta-final", "cta-sticky"].forEach(function(id) {
+                    var btn = document.getElementById(id);
+                    if (btn) {
+                        btn.textContent = "Vendas encerradas";
+                        btn.classList.add("disabled");
+                    }
+                });
+            }
+        }
+
+        atualizarPrecos();
+        setInterval(atualizarPrecos, 1000);
 
         var sticky = document.getElementById("sticky-bar");
         window.addEventListener("scroll", function() {
@@ -1085,6 +1225,40 @@
         }, { passive: true });
         sticky.style.opacity      = "0";
         sticky.style.transition   = "opacity .3s ease";
+
+        /* ==========================================================
+           CONTADOR REGRESSIVO
+           1ª fase: conta até FIM_JANELA_24H (fim do preço de R$ 47).
+           2ª fase: conta até DATA_LIMITE_INSCRICOES (fim das vendas).
+        ========================================================== */
+        function atualizarContador() {
+            var fase  = faseAtual();
+            var agora = new Date();
+            var alvo  = fase === "24h" ? FIM_JANELA_24H : DATA_LIMITE_INSCRICOES;
+            var restante = alvo - agora;
+
+            var label = document.getElementById("countdown-label");
+            if (label) {
+                label.textContent = fase === "24h" ? "Preço de R$ 47 termina em" : fase === "apos24h" ? "Inscrições encerram em" : "Inscrições encerradas";
+            }
+
+            if (restante < 0 || fase === "encerrado") restante = 0;
+
+            var dias  = Math.floor(restante / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((restante / (1000 * 60 * 60)) % 24);
+            var min   = Math.floor((restante / (1000 * 60)) % 60);
+            var seg   = Math.floor((restante / 1000) % 60);
+
+            var pad = function(n) { return String(n).padStart(2, "0"); };
+
+            document.getElementById("cd-dias").textContent  = pad(dias);
+            document.getElementById("cd-horas").textContent = pad(horas);
+            document.getElementById("cd-min").textContent   = pad(min);
+            document.getElementById("cd-seg").textContent   = pad(seg);
+        }
+
+        atualizarContador();
+        setInterval(atualizarContador, 1000);
     </script>
 
 </body>
